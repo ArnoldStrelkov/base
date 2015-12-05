@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta name="viewport" content="width=device-width"/>
-  <title>Workspace</title>
+  <title>Viki5</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => false %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => false %>
   <%= csrf_meta_tags %>
@@ -32,7 +32,7 @@
         <% if @current_user %>
         <tr >
         <td width= 50%><div class="div_avatar">
-          <img class="mini_avatar" 
+          <img class="mini_avatar menu" 
                 src="<%= @current_user.avatar.url unless (@current_user.nil? or @current_user.avatar.nil? )%>" 
                 alt="" border="0"
                 width=100 height=100
@@ -49,7 +49,7 @@
           <a class="css_blog_menu" href="/settings">НАСТРОЙКИ </a>
           <% else %>
           <div class="div_avatar">
-          <img class="mini_avatar" 
+          <img class="mini_avatar menu" 
                 src="viki5.jpg" 
                 alt="" border="0"
                 width=100 height=100>
@@ -97,24 +97,27 @@
       <div class="css_inner_form"><% flash.each do |key, value| %>
         <div class="alert alert-<%= key %>"><%= value %><br></div>
         <% end %>
+        </div>
+        <table><tr><td width=100px></td><td>
                   <br>
-                <label >Для входа введите Ваш e-mail</label> <br><br>
-                <input name="email" style='width: 500px' type="text" class="form-control" placeholder="">
+                <label class="css_label_enter"  >Для входа введите Ваш e-mail</label> <br><br>
+                <input name="email" style='width: 300px' type="text" class="form-control" placeholder="">
               <br><br>
                <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
                
-			
-</div>
+			</td><td>
 
 
-           <div  class="add_menu ">
-                <button type="submit" class=" css_button_menu wide ">Готово</button> 
+
+            <br>
+                <button type="submit" class="js_test css_button_menu enter wide burger">ГОТОВО</button> 
+           </td></table>
            
-           </div>
            
               
         
             </form>
+            <br>
      </div>
     <% end %>
     
@@ -189,7 +192,7 @@
  <div class="yield"> 
 <br>
 <div class="new">
-   
+    
      </div> 
   
 <%= yield %>

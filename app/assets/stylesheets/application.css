@@ -174,9 +174,18 @@ cursor:pointer;
     TEXT-DECORATION: none;
     padding: 15px;
 	 COLOR: #0173BC;
+	 cursor:pointer;
  
     
 }
+
+.css_button_menu.enter{
+    COLOR: #fff;
+    background-color: rgba(12, 144, 185, 0);
+    padding: 15px 20px;
+    margin-top: 22px;
+}
+
 .css_button_menu:hover {
 
     COLOR: White;
@@ -193,6 +202,22 @@ cursor:pointer;
  border-radius: 50px; /* закругление углов для всех, кто понимает */ 
     
 }
+
+.mini_avatar.menu{
+    
+   margin: 0px ;
+  
+    
+}
+
+.error{
+      color: red !important ;
+  
+}
+
+.css_label_enter{
+       color: white ;
+  }
 
 .div_avatar{
     width:100px;

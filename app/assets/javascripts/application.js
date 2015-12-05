@@ -141,9 +141,33 @@ $(window).scroll(function(){
             
 
 
+$(document).on('click', '.js_test',  function(e) {
+       e.preventDefault();
+        
+         $.ajax({
+          type: "POST",
+          url: '/enter',
+          data:  { email:  $('input[name="email"]').val()  },
+          success: (function( response ) {
+    if (response == "error"){
+        
+        $('.css_label_enter').addClass('error').html('неверный формат e-mail');
+        
+        //alert(response);
+    }else{
+        $('.css_enter').html(response);
+        
+    }
+    
+    
+   // alert(response);
+       
+        
+       }),
+          dataType: 'text'
+          });
      
-     
-     
+});   
     
 $(document).on('click', '.link_burger',  function(e) {
    e.preventDefault();

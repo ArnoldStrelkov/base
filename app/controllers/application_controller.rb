@@ -27,11 +27,15 @@ class ApplicationController < ActionController::Base
       obj = Token.new
       obj.email_tmp = params[:email]
       obj.token = User.encrypt(@token)
-      obj.save
-      cookies.permanent[:id] = obj.id
+      if obj.save
+          cookies.permanent[:id] = obj.id
+      else
+        render text: 'error' and return
+      end
       
-      UserMailer.welcome_email(params[:email], @token ).deliver_now
-    
+     # UserMailer.welcome_email(params[:email], @token ).deliver_later
+     @email_url = 'http://' + obj.email_tmp.split('@')[1].to_s
+    render :enter,  layout: false
     end  
      
       
@@ -55,7 +59,7 @@ class ApplicationController < ActionController::Base
           
         end
          
-        obj.email_tmp = nil
+        #obj.email_tmp = nil
         obj.user_id = @current_user.id
         obj.save
         cookies.permanent[:token] = params[:token]
@@ -79,13 +83,19 @@ class ApplicationController < ActionController::Base
       
      
     def exit
-      
+    
+    Token.find_by(id: cookies[:id]).destroy  
     cookies.delete(:token)
     cookies.delete(:id)
     @current_user = nil
      redirect_to :root
     end
     
+    def test
+    
+    #render text: params[:product] 
+    render :enter,  layout: false
+    end
     
     
     

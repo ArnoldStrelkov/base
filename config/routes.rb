@@ -12,6 +12,7 @@ Rails.application.routes.draw do
    get 'all' => 'main#all'
    get 'email' => 'main#email'
    
+   post '/test' => 'application#test'
    
    get 'settings' => 'main#settings'
    post 'settings' => 'main#updatesettings'
@@ -23,6 +24,7 @@ post 'feedusers' => 'main#feedusers_add'
 get '/:id' => 'main#user'
 post '/:id' => 'main#user_add'
 post '/' => 'main#feed_add'
+
 
 
    post ':controller/:action/(:id)/'
