@@ -33,7 +33,7 @@ class ApplicationController < ActionController::Base
         render text: 'error' and return
       end
       
-     # UserMailer.welcome_email(params[:email], @token ).deliver_later
+      UserMailer.welcome_email(params[:email], @token ).deliver_later
      @email_url = 'http://' + obj.email_tmp.split('@')[1].to_s
     render :enter,  layout: false
     end  
