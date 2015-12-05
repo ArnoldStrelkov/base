@@ -1,0 +1,37 @@
+.form-control {
+   width: 576px;
+    padding: 6px 12px;
+    font-size: 16px;
+    line-height: 1.42857;
+    color: #555555;
+    vertical-align: middle;
+    background-color: white;
+    background-image: none;
+    border: 0px solid #cccccc; 
+   font-family: 'Open Sans', sans-serif;
+    
+  
+    
+}
+    
+.form-control:focus {
+    border-color: #66afe9;
+    }
+
+
+
+
+textarea.form-control {
+    
+        width: 576px;
+        display:block; 
+        font-size: 16px;
+        font-family: 'Open Sans', sans-serif;
+        
+       
+}
+
+
+label {
+   font-weight: bold; }
+   

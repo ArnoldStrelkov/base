@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width"/>
+  <title>Workspace</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => false %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => false %>
+  <%= csrf_meta_tags %>
+   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800&subset=latin,cyrillic" rel="stylesheet" type="text/css">
+
+</head>
+<body  >
+<div class="main"> 
+ 
+ <div class="title_all">
+
+  <div class="menu"> 
+  
+  
+    <div class="title_top">Меню 
+    
+    <div class="burger"><a class="close_burger css_link_burger" href="">ЗАКРЫТЬ
+                </a>
+    </div> </div>
+    <div class=css_hr2> </div>
+    
+    
+    
+    <div class="title">
+      <table width= 570px>
+        
+        <% if @current_user %>
+        <tr >
+        <td width= 50%><div class="div_avatar">
+          <img class="mini_avatar" 
+                src="<%= @current_user.avatar.url unless (@current_user.nil? or @current_user.avatar.nil? )%>" 
+                alt="" border="0"
+                width=100 height=100
+                ></div>
+                </td>
+        <td width= 50%> <a class="css_blog_menu" href="/<%= @current_user.id unless @current_user.nil? %>">
+          МОЙ БЛОГ</a> </td>
+        </tr>
+        <% end %>
+        
+        <tr height=107px >
+        <td width= 50%>
+          <% if @current_user %>
+          <a class="css_blog_menu" href="/settings">НАСТРОЙКИ </a>
+          <% else %>
+          <div class="div_avatar">
+          <img class="mini_avatar" 
+                src="viki5.jpg" 
+                alt="" border="0"
+                width=100 height=100>
+          </div>
+           <% end %>
+          
+          
+          
+          </td>
+        <td width= 50%> <a class="css_blog_menu" href="/">ЧИТАЕМЫЕ БЛОГИ </a></td>
+        </tr>
+        <tr  height=107px >
+        <td>
+             <% if @current_user %>
+             <a class="css_blog_menu " href="/exit">ВЫХОД</a>
+             <% else %>
+             <a class="css_blog_menu " href="/about">О ПРОЕКТЕ</a>
+             <% end %>
+        
+        
+         </td>
+        <td> <a class="css_blog_menu" href="/all">ВСЕ БЛОГИ </a> </td>
+        </tr>
+        <tr>
+        <td>
+          
+          </td>
+        
+        <td>
+            </td>
+        
+        </tr>
+        
+        
+     </table>
+     
+    </div>
+    <% if @current_user.nil? %>
+    
+   <div class=css_hr2> </div>
+     <div class="css_enter ">
+      
+      
+       <form method="POST" action="/enter" id="email_enter"  >
+      <div class="css_inner_form"><% flash.each do |key, value| %>
+        <div class="alert alert-<%= key %>"><%= value %><br></div>
+        <% end %>
+                  <br>
+                <label >Для входа введите Ваш e-mail</label> <br><br>
+                <input name="email" style='width: 500px' type="text" class="form-control" placeholder="">
+              <br><br>
+               <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+               
+			
+</div>
+
+
+           <div  class="add_menu ">
+                <button type="submit" class=" css_button_menu wide ">Готово</button> 
+           
+           </div>
+           
+              
+        
+            </form>
+     </div>
+    <% end %>
+    
+  </div>
+
+
+<div class="title_top title_display">&nbsp; <%= @title %> 
+
+<div class="burger">
+  
+  
+  <a class="link_burger css_link_burger" href="">МЕНЮ</a></div>
+   <% if @menu_read %>
+<div class="burger"><a class=" css_link_burger" href="/feedusers">БЛОГЕРЫ</a></div>
+    <% end %>
+     <% if @menu_all %>
+<div class="burger"><a class=" css_link_burger" href="/allusers">БЛОГЕРЫ</a></div>
+    <% end %>
+    <% if @menu_read_users %>
+<div class="burger"><a class=" css_link_burger" href="/">БЛОГИ</a></div>
+    <% end %>
+    <% if @menu_all_users %>
+<div class="burger"><a class=" css_link_burger" href="/all">БЛОГИ</a></div>
+    <% end %>
+    
+    
+    
+  
+  <% if @add %>
+<div class="burger"><a class="js_add_form_for_post  css_link_burger" href="#">НОВЫЙ ПОСТ</a></div>
+    <% end %>
+  </div>
+
+  
+  <% if @add %>
+ 
+   
+   <div class="css_fon">
+      
+  <div class="css_form_for_post_display_none">
+    <form method="POST" action="/api/post/create" class="js_submit"  >
+              
+              <br>
+                <label >Заголовок</label> <br>
+                <input name="title" type="text" class="form-control  " placeholder="">
+                <br> <br>
+                <label >Текст</label> <br>
+                <textarea name="body" type="text " rows="10" class="form-control  wide"></textarea>
+                
+                <br>
+                <input type="file" name="picture" class="post_picture_input" style = "display: none" >
+                
+                <img id="" class=" image_preview js_add_post_picture post_pic" src="" alt="" border="0">
+                
+                <a class="js_add_post_picture css_button_menu add_foto_menu" href="#">добавить фото</a>
+                
+               <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+                <label class="add_foto_menu" >Видео</label> 
+				 <input name="video" type="text" class="form-control add_foto_menu" placeholder="вставьте ссылку на youtube">
+				 <br><br>
+                <button type="submit" class=" css_button_menu wide">Отправить</button>  
+                   <br>
+    </form>
+   </div> 
+  
+   </div> 
+   
+   
+  <% end %>
+
+ </div> 
+ <div class="yield"> 
+<br>
+<div class="new">
+    <a class=" css_button_menu" href="/email">email</a>
+     </div> 
+  
+<%= yield %>
+  </div>
+
+</div>
+</body>
+</html>

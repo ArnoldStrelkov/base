@@ -1,0 +1,93 @@
+
+ 
+
+
+
+
+
+
+
+
+<% for post in @all %>
+
+<div class="post">
+    
+        
+  
+    <h3><%= post.title %></h3>
+   
+    
+     <% unless post.foto.url.to_s == '' %>
+     
+    <img class="post_pic" src="<%= post.foto.url  %>" alt="" border="0"> 
+     <% end %>
+    
+        
+     <% if !post.video.to_s.empty? %>
+            
+            
+            <div class="youtube"
+            id="<%= post.video.split('?v=')[1] %>"
+             >
+                
+                
+                
+                
+            </div>
+                 
+        
+        <% end%>
+    
+    
+    <div class="post_in css_margin">
+    
+     <%= h(post.body).gsub("\n", "<br>").html_safe %>
+    </div>
+    
+<table border="0">
+            <tr>
+                <td > <img class="mini_avatar" 
+                src="<%= post.user.avatar.url unless post.user.avatar.nil? %>" 
+                alt="" border="0"
+                width=70 height=70
+                ></td>
+                
+                <td width="100%"><a class="css_feedusers_name"
+                       href="/<%= post.user.id unless post.user.nil? %>"><%= post.user.name unless post.user.nil? %></a></td>
+               
+               
+                
+                <td >
+                    
+    
+     
+    
+                    <a class="css_button_menu post_full" href="#" style="display: none">развернуть</a>
+                    
+                    <% if @current_user %>
+                    
+                         <% if @current_user.id.to_s == post.user.id.to_s %>
+                          <a class="js_delete  css_button_menu"
+                              href="/api/delete/<%= post.id %>">удалить</a>
+                         <% else %> 
+                              <a class="js_read  css_button_menu"
+                              href="/api/read/<%= post.user.id %>">
+                                  <% if @current_user.following? (post.user) %>читаю<% else %>
+                                  читать
+                                  <% end %></a> 
+                    
+                        <% end %>
+                    <% end %>
+                    
+                    </td>
+                
+               
+            </tr>
+        </table>
+
+
+
+<hr class=css_hr>
+</div>
+
+<% end %>

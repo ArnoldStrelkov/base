@@ -1,0 +1,317 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+
+html, body {
+    display: block;
+    margin: 0px;
+    width: 100%;
+    
+    
+    height: 100%;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    line-height: 22px;
+    background: #f3f3f3;
+    
+}
+
+iframe{
+    
+      width:600px;
+    height:338px;;
+}
+
+.css_fon{
+    background: #f3f3f3;
+      
+}
+
+
+.youtube{
+width: 600px; 
+height: 338px; 
+background-position-y: -55px; 
+background-size: 100% auto;
+cursor:pointer;
+}
+.display_none{
+    display: none;
+}
+
+.fixed{
+    position: fixed;
+      width:600px;
+      top: 0%;
+}
+
+.fixed100{
+    position: fixed;
+      width:100px;
+      top: 0%;
+      background: #f3f3f3;
+}
+
+.image_preview{
+    
+      max-width:200px;
+      max-height:200px;
+}
+
+
+.main{
+    width:600px;
+    margin:0 auto;
+}
+
+.title{
+    padding:  15px 0px 15px 15px;
+    margin: 0px;
+    background-color: #0072bc;
+    background-image: linear-gradient(10deg, #1cbbb4 0%, #0072bc 100%);
+    COLOR: White;
+     font-size: 16px;
+    FONT-WEIGHT: bold;
+}
+
+.title_top{
+    padding:  15px 0px 15px 15px;
+    margin: 0px;
+    background-color: #0072bc;
+    background-image: linear-gradient(10deg, #0988B9 0%, #0072bc 100%);
+    COLOR: White;
+     font-size: 16px;
+    FONT-WEIGHT: bold;
+}
+
+.css_enter{
+   text-align:center;
+    background-color: #0072bc;
+    background-image: linear-gradient(-10deg, #0072bc 0%, #1cbbb4 100%);
+     padding: 0px 0px;
+     
+     
+}
+
+.yield{
+   
+    background-color: #f3f3f3;
+     
+}
+
+.burger{
+    
+    float: right;
+    
+    
+}
+
+.css_link_burger{
+    
+    
+    
+    DISPLAY: block;
+    
+    COLOR: #fff;
+    FONT-SIZE: 16px;
+    FONT-WEIGHT: bold;
+    TEXT-DECORATION: none;
+    padding: 15px;
+	  margin: -15px 0px 0px 0px;
+ 
+    
+}
+
+.css_link_burger:hover {
+
+    COLOR: White;
+    BACKGROUND-COLOR: #FF6400;
+}
+
+.css_blog_menu{
+    
+    
+    text-align: center;
+    DISPLAY: block;
+    font-family: 'Open Sans', sans-serif;
+    
+    FONT-SIZE: 16px;
+    FONT-WEIGHT: bold;
+    TEXT-DECORATION: none;
+    padding: 15px;
+	 COLOR: #fff;
+ 
+    
+}
+.css_blog_menu:hover {
+
+    COLOR: White;
+    BACKGROUND-COLOR: #FF6400;
+}
+
+.css_button_menu{
+    
+    
+    text-align: center;
+    DISPLAY: block;
+    font-family: 'Open Sans', sans-serif;
+    
+    FONT-SIZE: 16px;
+    FONT-WEIGHT: bold;
+    TEXT-DECORATION: none;
+    padding: 15px;
+	 COLOR: #0173BC;
+ 
+    
+}
+.css_button_menu:hover {
+
+    COLOR: White;
+    BACKGROUND-COLOR: #FF6400;
+}
+
+.mini_avatar{
+    
+   margin: 0px 10px;
+   
+     -moz-border-radius: 50px; /* закругление для старых Mozilla Firefox */
+ -webkit-border-radius: 50px; /* закругление для старых Chrome и Safari */
+ -khtml-border-radius:50px; /* закругл. для браузера Konquerer системы Linux */
+ border-radius: 50px; /* закругление углов для всех, кто понимает */ 
+    
+}
+
+.div_avatar{
+    width:100px;
+ 
+margin:0 auto;
+}
+
+
+
+.menu{
+    
+    display: none;
+    
+}
+
+.blok{
+    padding: 20px;
+    margin: 10px;
+    background-color: lime;
+    
+}
+
+.top{
+    padding: 20px;
+    margin: 10px;
+    margin-top: 0px;
+    background-color: lime;
+    
+}
+
+.ltext {
+float: left; 
+
+}
+.rtext {
+float: right; 
+width: 200px;
+}
+
+
+.css_form_for_post_display_none{
+    
+    display: none;
+   
+    
+}
+
+.wide {
+    
+    
+    width: 100%;
+    border: 0px;
+    
+    
+}
+
+.css_feedusers_name{
+    
+    
+      
+    COLOR: #0173BC;
+    FONT-SIZE: 16px;
+    FONT-WEIGHT: bold;
+    TEXT-DECORATION: none;
+    padding: 15px;
+    
+    
+    
+}
+.css_feedusers_name:hover {
+
+    COLOR: White;
+    BACKGROUND-COLOR: #FF6400;
+}
+
+.css_hr {
+
+    width: 500px;
+   
+     color: #ccc; /*для IE */
+    background-color:#ccc; /*для Firefox, Opera, Safari*/
+    border:0px none;
+    height:1px; /* высота 1px IE, Firefox, Opera, Safari */
+    clear:both; /* для очистки, если тег идет после float елемента */
+    
+}
+
+.css_hr2 {
+
+    width: 600px;
+   
+     color: #fff; /*для IE */
+    background-color:#fff; /*для Firefox, Opera, Safari*/
+    border:0px none;
+    height:1px; /* высота 1px IE, Firefox, Opera, Safari */
+    clear:both; /* для очистки, если тег идет после float елемента */
+}
+
+.css_margin {
+
+   margin: 10px;
+}
+
+h3 {
+    
+    margin: 10px;
+
+}
+
+.post{
+    text-align: justify;
+}
+
+.post_in{
+     max-height: 310px;
+      overflow: hidden;
+}
+
+.full{
+     max-height: none;
+      
+}

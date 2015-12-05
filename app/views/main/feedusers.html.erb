@@ -1,0 +1,39 @@
+
+<% for user in @users %>
+
+<div class="post">
+    
+        
+   
+    
+<table border="0">
+            <tr>
+                <td  > <img class="mini_avatar" 
+                src="<%= user.avatar.url unless user.avatar.nil? %>" 
+                alt="" border="0"
+                width=100 height=100
+                ></td>
+                
+                <td width="100%"><a class="css_feedusers_name"
+                       href="/<%= user.id %>"><%= user.name %></a></td>
+                       
+                <td >
+                    <% if @current_user %>
+                    <a class="js_read css_button_menu"
+                       href="/api/read/<%= user.id %>"><% if @current_user.following? (user) %>читаю<% else %>
+                    читать
+                    <% end %></a>
+                    <% end %>
+                    
+                    </td>
+                
+               
+            </tr>
+        </table>
+
+
+
+
+</div>
+
+<% end %>

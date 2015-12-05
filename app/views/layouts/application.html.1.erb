@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width"/>
+  <title>Workspace</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800&subset=latin,cyrillic" rel="stylesheet" type="text/css">
+
+</head>
+<body>
+<div class="main"> 
+
+  <div class="menu"> 
+  
+    <div class="title">Меню 
+    
+    <div class="burger"><a class="close_burger css_link_burger" href="">ЗАКРЫТЬ
+                </a>
+    </div> </div>
+    <br>
+    
+    
+    
+    <div class="title">
+      <table width= 570px>
+        
+        <% if @current_user %>
+        <tr >
+        <td width= 50%><div class="div_avatar">
+          <img class="mini_avatar" 
+                src="<%= @current_user.avatar.url unless (@current_user.nil? or @current_user.avatar.nil? )%>" 
+                alt="" border="0"
+                width=100 height=100
+                ></div>
+                </td>
+        <td width= 50%><a class="css_blog_menu" href="/<%= @current_user.id unless @current_user.nil? %>">
+          <%= @current_user.name unless @current_user.nil? %></a></td>
+        </tr>
+        <% end %>
+        
+        <tr >
+        <td width= 50%><a class="css_blog_menu" href="/">ЧИТАЕМЫЕ БЛОГИ </a></td>
+        <td width= 50%><a class="css_blog_menu" href="/feedusers">ЧИТАЕМЫЕ ПОЛЬЗОВАТЕЛИ </a></td>
+        </tr>
+        <tr>
+        <td><a class="css_blog_menu" href="/all">ВСЕ БЛОГИ </a></td>
+        <td><a class="css_blog_menu" href="/allusers">ВСЕ ПОЛЬЗОВАТЕЛИ </a></td>
+        </tr>
+        <tr>
+        <td>
+          <% if @current_user %>
+          <a class="css_blog_menu" href="/settings">НАСТРОЙКИ </a>
+           <% end %>
+          </td>
+        
+        <td><a class="css_blog_menu <%= 'show_enter' if @current_user.nil? %>" href="<%= '/exit' unless @current_user.nil? %>"><%=  @test %>
+            <%= 'ВЫХОД' unless @current_user.nil? %><%= 'ВХОД' if @current_user.nil? %>
+           
+          </a></td>
+        
+        </tr>
+        
+        
+     </table>
+     
+    </div>
+    
+     <div class="title display_none">
+      
+      
+       <form method="POST" action="/enter" id="email_enter"  >
+      <div class="css_inner_form"><% flash.each do |key, value| %>
+        <div class="alert alert-<%= key %>"><%= value %><br></div>
+        <% end %>
+                  <h3>Для входа введите Ваш e-mail
+                <label ></label> <br><br>
+                <input name="email" type="text" class="form-control" placeholder="">
+              
+               <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+               
+			
+</div>
+
+
+           <div  class="add_menu ">
+                <button type="submit" class="css_link_burger">Готово</button> 
+           
+           </div>
+           
+              
+        
+            </form>
+     </div>
+    
+    
+  </div>
+
+
+<div class="title title_display">&nbsp; <%= @title %>  
+
+<div class="burger">
+  
+  
+  <a class="link_burger css_link_burger" href="">МЕНЮ</a></div>
+  <% if @add %>
+<div class="burger"><a class="js_add_form_for_post css_link_burger" href="#">ДОБАВИТЬ ПОСТ</a></div>
+    <% end %>
+  </div>
+<div class="yield"> 
+  
+  <% if @add %>
+ 
+   
+   <div class="">
+  <div class="css_form_for_post_display_none">
+    <form method="POST" action="/api/post/create" class="js_submit"  >
+              
+  
+                <label >Заголовок</label> <br>
+                <input name="title" type="text" class="form-control  wide" placeholder="">
+                <br>
+                <label >Текст</label> <br>
+                <textarea name="body" type="text " rows="10" class="form-control  wide"></textarea>
+                
+                <br>
+                <input type="file" name="picture" class="post_picture_input" style = " " >
+                
+                <img id="" class=" image_preview js_add_post_picture post_pic" src="" alt="" border="0">
+                
+                <a class="js_add_post_picture post_down_menu js_off_pict" href="#">добавить фото</a>
+                
+               <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+				
+                <button type="submit" class=" css_blog_menu wide">Отправить</button>  
+                 
+    </form>
+   </div> 
+  
+   </div> 
+   
+   
+  <% end %>
+
+<div class="new"> </div> 
+  
+<%= yield %>
+  </div>
+
+</div>
+</body>
+</html>
