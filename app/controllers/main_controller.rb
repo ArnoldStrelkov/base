@@ -6,7 +6,11 @@ class MainController < ApplicationController
     if @current_user
     ids = @current_user.followed_user_ids
     else
-    ids = User.find(@admin).followed_user_ids  
+      if User.find(@admin)
+    ids = User.find(@admin).followed_user_ids 
+      else
+      ids = [1]
+      end
     end
     @all = Post.where(user_id: ids).order(id: :desc).limit(10)
     

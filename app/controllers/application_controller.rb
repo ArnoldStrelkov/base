@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
     
     
     def login
-      @admin = 15
+      @admin = 1
       @current_user = nil
       
       unless cookies[:id].nil?
