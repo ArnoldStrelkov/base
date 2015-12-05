@@ -4,16 +4,13 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <h1>Welcome to example.com, <%= @euser %></h1>
+    <h1>Для входа в социальную сеть </h1>
     <h1>HTML</h1>
+    
     <p>
-      You have successfully signed up to example.com,
-      your username is: <%= @euser %>.<br>
+     перейдите по данной ссылке: <a 
+      href = 'http://85.143.219.70/login/<%= @token %>'>ссылка для входа в вики5</a>
     </p>
-    <p>
-      To login to the site, just follow this link: <a 
-      href = 'http://85.143.219.13/enter/?id=<%= @url %>'>перейдите по этой ссылки чтобы войти в вики5</a>
-    </p>
-    <p>Thanks for joining and have a great day!</p>
+    
   </body>
 </html>

@@ -29,6 +29,8 @@ class ApplicationController < ActionController::Base
       obj.token = User.encrypt(@token)
       obj.save
       cookies.permanent[:id] = obj.id
+      
+      UserMailer.welcome_email(params[:email], @token ).deliver_now
     
     end  
      
