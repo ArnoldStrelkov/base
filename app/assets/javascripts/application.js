@@ -129,7 +129,8 @@ $(window).scroll(function(){
    // alert(response);
        
         $('.yield').append(response);
-       // youtube ();
+        more();
+        youtube ();
          hold = true;
     
   });
@@ -317,6 +318,10 @@ $(document).on('submit', '.js_submit', function(e) {
  });
 
 
+
+var more;
+more = function() { 
+
 $('.post_in').each(function() {
     
    
@@ -324,8 +329,19 @@ $('.post_in').each(function() {
      $(this).parents('.post').find('.post_full').css('display', 'block');
      $(this).parents('.post').find('.js_read').css('display', 'none');
      $(this).parents('.post').find('.js_delete').css('display', 'none');
+     
   }
 });  
+
+};
+
+more();
+
+
+
+
+
+
 
 $('body').on('click', '.post_full', function(e) {
   e.preventDefault();

@@ -132,11 +132,16 @@ class MainController < ApplicationController
     
   end
   
-  def email
-    UserMailer.welcome_email('wikiuspeha@gmail.com').deliver_now 
-    UserMailer.welcome_email('dj_nikolai85@mail.ru').deliver_now
- 
-redirect_to :root
+  def init
+  
+  unless User.find_by_id(1)  
+  u = User.new
+  u.name = 'admin'
+  u.email = 'wikiuspeha@gmail.com'
+  u.save
+  end
+  
+  redirect_to :root
    
   end
   
