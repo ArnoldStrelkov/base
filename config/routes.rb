@@ -12,6 +12,7 @@ Rails.application.routes.draw do
    get 'all' => 'main#all'
    get 'email' => 'main#email'
    get 'about' => 'main#about'
+   get 'error' => 'application#error'
    
    post '/test' => 'application#test'
    

@@ -1,0 +1,47 @@
+
+  
+   <div class='css_margin post'>
+   <h3>Что-то пошло не так</h3> <br>
+      
+   
+  
+   
+   Возможно вы воспользовались для входа устаревшей ссылкой.<br>
+   <br>
+   Если вы только что вводили свой e-mail для входа, то проверьте свою почту еще раз
+   и перейдите по самой последней ссылке которую вы получили.
+   <br> <br>
+   Если вы не вводили только что свой e-mail и перешли по ссылке которая была
+   направлена вам ранее на почту, то данная ссылка уже устарела,
+   вам небоходимо ввести свой e-mail заново и получить новую ссылку.
+   <br> <br>
+   
+  
+   </div>
+   
+   <div class="css_enter ">
+      
+      
+       <form method="POST" action="/enter" class="email_enter"  >
+      
+        <table><tr><td width=100px></td><td>
+                  <br>
+                <label class="css_label_enter"  >Для входа введите Ваш e-mail</label> <br><br>
+                <input name="email" style='width: 300px' type="text" class="form-control" placeholder="">
+              <br><br>
+               <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+               
+			</td><td>
+
+
+
+            <br>
+                <button type="submit" class="js_test css_button_menu enter wide burger">ГОТОВО</button> 
+           </td></table>
+           
+           
+              
+        
+            </form>
+            <br>
+     </div>

@@ -144,11 +144,12 @@ $(window).scroll(function(){
 
 $(document).on('click', '.js_test',  function(e) {
        e.preventDefault();
-        
+        var email = $(this).parents('.email_enter').find('input[name="email"]').val()
          $.ajax({
           type: "POST",
           url: '/enter',
-          data:  { email:  $('input[name="email"]').val()  },
+        data:  { email:  email  },
+         // data:  { email:  $('input[name="email"]').val()  },
           success: (function( response ) {
     if (response == "error"){
         

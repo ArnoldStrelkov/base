@@ -93,11 +93,8 @@
      <div class="css_enter ">
       
       
-       <form method="POST" action="/enter" id="email_enter"  >
-      <div class="css_inner_form"><% flash.each do |key, value| %>
-        <div class="alert alert-<%= key %>"><%= value %><br></div>
-        <% end %>
-        </div>
+       <form method="POST" action="/enter" class="email_enter"  >
+      
         <table><tr><td width=100px></td><td>
                   <br>
                 <label class="css_label_enter"  >Для входа введите Ваш e-mail</label> <br><br>

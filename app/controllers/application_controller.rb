@@ -43,6 +43,14 @@ class ApplicationController < ActionController::Base
       
       obj = Token.find_by(id: cookies[:id])
       
+      if obj.nil?
+        @title = 'Ошибка входа'
+        redirect_to '/error' and return
+        #render 'main/error' and return
+      end
+  
+      
+      
       if User.encrypt(params[:token]) == obj.token
         
         @current_user = User.find_by(email: obj.email_tmp)
@@ -81,7 +89,9 @@ class ApplicationController < ActionController::Base
         
       else  
        @current_user = nil 
-        
+       @title = 'Ошибка входа'
+       #render 'main/error' and return
+        redirect_to '/error' and return
       end 
       
       @new_user ? (render 'main/settings' and return) : (redirect_to :root)
@@ -107,6 +117,12 @@ class ApplicationController < ActionController::Base
     render :enter,  layout: false
     end
     
+    def error
+    
+    @title = 'Ошибка '
+    render 'main/error'
+    
+    end
     
     
     
