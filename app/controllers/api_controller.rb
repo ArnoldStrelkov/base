@@ -17,17 +17,6 @@ def createpost
 end
 
 
-
-
-
-
-
-
-
-
-
-
-
 def delete
   id = params[:id]
   obj = Post.find(id)
@@ -36,12 +25,33 @@ def delete
   render text: '1'
 end
 
-def get_edit
+def edit
   id = params[:id]
   @post = Post.find(id)
-  render  layout: false
+  render  'main/edit', layout: false
   
 end
+
+def editpost
+  id = params[:id]
+  post = Post.find(id)
+  
+  if post.user.id = @current_user.id
+  post.title = params[:title]
+  post.body = params[:body]
+  post.save
+  end
+  
+  @all = []
+  @all = @all << post
+  
+  
+  render  'main/feed', layout: false
+  
+end
+
+
+
 
 
 def update

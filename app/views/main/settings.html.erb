@@ -1,10 +1,14 @@
 
-<br>
+
  <form method="POST"  enctype="multipart/form-data"  action="/settings" class=" "  >
+              <% if @new_user %>
               
-  
+              Вы удачно вошли в социальную сеть Viki5.<br>
+              Для завершения регистрации введите ваше имя и установите аватар.<br>
+              <%end %>
+  <br>
                 <label >Имя</label> <br>
-                <input name="name" type="text" class="form-control  " placeholder=""
+                <input name="name" maxlength="23" type="text" class="form-control  " placeholder=""
                 value="<%= @current_user.name %>">
                 <br><br>
                 <label >Аватар</label> <br>
@@ -17,8 +21,8 @@
                 <a class="js_add_post_picture  css_button_menu add_foto_menu" href="#"><%= @current_user.avatar.url.nil? ? 'добавить аватар' : 'сменить аватар' %></a>
                 
                <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-				
-                <button type="submit" class=" css_button_menu wide">СОХРАНИТЬ ИЗМЕНЕНИЯ</button>  
+				<br>
+                <button type="submit" class=" css_button_menu wide onepix">СОХРАНИТЬ ИЗМЕНЕНИЯ</button>  
                  
     </form>
     <br>

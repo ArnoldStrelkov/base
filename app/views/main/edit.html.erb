@@ -1,0 +1,45 @@
+ <div class="js_">
+    <form method="POST" action="/api/editpost/<%= @post.id %>" class="js_form_edit"  >
+              
+              <br>
+                <label >Заголовок</label> <br>
+                <input name="title" type="text" class="form-control" placeholder=""
+                value="<%= @post.title %>">
+                <br><br>
+                
+                 <% unless @post.foto.url.to_s == '' %>
+     
+                 <img class="post_pic" src="<%= @post.foto.url  %>" alt="" border="0"> 
+                 <% end %>
+    
+        
+                 <% if !@post.video.to_s.empty? %>
+                        
+                        <div class="youtube" id="<%= @post.video.split('?v=')[1] %>"  >
+                        </div>
+                    
+                 <% end%>
+                
+                
+                <br><br>
+                <label >Текст</label> <br>
+                <textarea name="body" type="text " rows="10" class="form-control  wide"
+               
+                > <%= @post.body %></textarea>
+                
+                <br>
+               
+               <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+               
+				 <br><br>
+				 
+				 <div class='send'>
+                <button type="submit" class=" css_button_menu wide onepix">Сохранить изменения</button> 
+                </div>
+                
+                <div class='send_text'>
+                 
+                </div>
+                   <br>
+    </form>
+ </div>

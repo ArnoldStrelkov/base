@@ -240,6 +240,77 @@ _this.parents('.post').fadeOut(400);
   });
 });
 
+
+$(document).on('click', '.js_button_edit',  function(e) {
+   var _this;
+  e.preventDefault();
+   _this = $(this);
+   //alert (_this.html());
+var url;
+url = $(this).attr('href');
+//alert(url);
+    return   $.ajax({
+      url: url,
+    //url: $(this).attr('action'),
+      type: 'POST',
+      data: '',
+      async: true,
+      success: function(response) {
+ //alert ('success');
+_this.parents('.post').html(response);
+youtube ();
+       },
+     cache: false,
+      contentType: false,
+      processData: false
+  });
+});
+
+
+
+  
+$(document).on('submit', '.js_form_edit', function(e) {
+  var _this;
+    e.preventDefault();
+   
+    _this = this;
+   var url = $(this).attr('action');
+    // alert(url);
+    var formData;
+    formData = new FormData($('.js_form_edit')[0]);
+    
+    //$('.send').css("display","none");
+    //$('.send_text').html('отправляем...');
+    
+    console.log (formData);
+    console.log ($(".www").val());
+    return   $.ajax({
+      url: url,
+    //url: $(this).attr('action'),
+      type: 'POST',
+      data: formData,
+      async: true,
+      success: function(response) {
+          $(_this).parents('.post').html(response);
+         
+        
+         youtube ();
+         more();
+         
+         
+      },
+     cache: false,
+      contentType: false,
+      processData: false
+  });
+   
+ });
+
+
+
+
+
+
 $(document).on('click', '.js_read',  function(e) {
    var _this;
   e.preventDefault();
@@ -287,6 +358,8 @@ $(document).on('submit', '.js_submit', function(e) {
     var formData;
     formData = new FormData($('.js_submit')[0]);
     
+    $('.send').css("display","none");
+    $('.send_text').html('отправляем...');
     
     console.log (formData);
     console.log ($(".www").val());
@@ -299,12 +372,15 @@ $(document).on('submit', '.js_submit', function(e) {
       success: function(response) {
          $('.new').prepend(response);
          $('.js_submit')[0].reset();
-         $('.css_form_for_post_display_none').fadeOut(400);
+         $('.css_form_for_post_display_none').fadeOut(300);
         // $('.add_menu_on').removeClass('active');
         // $('.add_menu_on').find('a').text('добавить пост');
          $(_this).find('.image_preview').attr("src", '');
          $(_this).find('.add_foto_menu').css("display","block");
-          $('.js_add_form_for_post').removeClass('active');
+         $('.js_add_form_for_post').removeClass('active');
+          
+         $('.send').fadeIn(1000);
+         $('.send_text').html('');
          
          youtube ();
          

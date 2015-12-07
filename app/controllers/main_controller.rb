@@ -145,7 +145,9 @@ class MainController < ApplicationController
    
   end
   
-  
+  def about
+    @title = 'О проекте'
+  end
   
   
   

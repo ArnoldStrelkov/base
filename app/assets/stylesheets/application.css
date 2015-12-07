@@ -215,6 +215,13 @@ cursor:pointer;
   
 }
 
+.onepix{
+      border: 1px solid !important ;
+      background-color: #F3F3F3;
+  
+}
+
+
 .css_label_enter{
        color: white ;
   }
@@ -338,5 +345,15 @@ h3 {
 
 .full{
      max-height: none;
+      
+}
+
+.send_text{
+     text-align: center;
+      
+}
+
+.post_pic{
+     max-width: 600px;
       
 }

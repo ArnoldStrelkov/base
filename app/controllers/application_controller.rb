@@ -53,10 +53,21 @@ class ApplicationController < ActionController::Base
         else
           @current_user = User.new
           @current_user.email = obj.email_tmp
-          @current_user.name = obj.email_tmp
+          @current_user.name = obj.email_tmp.split('@')[0].to_s
+          
+         # File.open('/home/ubuntu/workspace/public/user.png') do |f|
+          File.open('/home/deploy/base/public/user.png') do |f|  
+          
+           @current_user.avatar = f
+          end
+          
           @current_user.save
           
+          feed = User.find(@admin).followed_user_ids
+          feed.each {|id| Feed.create(followed_id: id, follower_id: @current_user.id) }
           
+          @new_user = true
+          @title = 'Завершение регистрации'
         end
          
         #obj.email_tmp = nil
@@ -73,8 +84,7 @@ class ApplicationController < ActionController::Base
         
       end 
       
-      
-      redirect_to :root
+      @new_user ? (render 'main/settings' and return) : (redirect_to :root)
       
       
       

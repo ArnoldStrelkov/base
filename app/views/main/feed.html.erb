@@ -25,16 +25,8 @@
         
      <% if !post.video.to_s.empty? %>
             
-            
-            <div class="youtube"
-            id="<%= post.video.split('?v=')[1] %>"
-             >
-                
-                
-                
-                
+            <div class="youtube" id="<%= post.video.split('?v=')[1] %>"  >
             </div>
-                 
         
         <% end%>
     
@@ -56,19 +48,23 @@
                        href="/<%= post.user.id unless post.user.nil? %>"><%= post.user.name unless post.user.nil? %></a></td>
                
                
-                
-                <td >
+               <td >
                     
-    
-     
-    
-                    <a class="css_button_menu post_full" href="#" style="display: none">развернуть</a>
+                         <% if @current_user and (@current_user.id.to_s == post.user.id.to_s) %>
+                         <a class="js_button_edit  css_button_menu"
+                              href="/api/edit/<%= post.id %>">ред.</a>
+                              <% end  %>
+                              </td >
+               
+                
+                <td > <a class="css_button_menu post_full" href="#" style="display: none">развернуть</a>
                     
                     <% if @current_user %>
                     
                          <% if @current_user.id.to_s == post.user.id.to_s %>
+                         
                           <a class="js_delete  css_button_menu"
-                              href="/api/delete/<%= post.id %>">удалить</a>
+                              href="/api/delete/<%= post.id %>">удал.</a>
                          <% else %> 
                               <a class="js_read  css_button_menu"
                               href="/api/read/<%= post.user.id %>">

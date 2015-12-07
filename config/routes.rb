@@ -11,7 +11,7 @@ Rails.application.routes.draw do
    get 'allusers' => 'main#allusers'
    get 'all' => 'main#all'
    get 'email' => 'main#email'
-   get 'init' => 'main#init'
+   get 'about' => 'main#about'
    
    post '/test' => 'application#test'
    
