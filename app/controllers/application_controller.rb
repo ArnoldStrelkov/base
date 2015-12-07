@@ -15,7 +15,10 @@ class ApplicationController < ActionController::Base
       obj = Token.find_by(id: cookies[:id])
       
        if obj.nil?
-          redirect_to '/error' and return
+         cookies.delete(:token)
+         cookies.delete(:id)
+    
+          redirect_to :root and return
        end
       
       
