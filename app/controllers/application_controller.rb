@@ -71,7 +71,7 @@ class ApplicationController < ActionController::Base
           @current_user.email = obj.email_tmp
           @current_user.name = obj.email_tmp.split('@')[0].to_s
           
-         # File.open('/home/ubuntu/workspace/public/user.png') do |f|
+          #File.open('/home/ubuntu/workspace/public/user.png') do |f|
           File.open('/home/deploy/base/public/user.png') do |f|  
           
            @current_user.avatar = f
