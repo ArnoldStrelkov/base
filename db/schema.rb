@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151204135703) do
+ActiveRecord::Schema.define(version: 20151213134051) do
 
   create_table "feeds", force: :cascade do |t|
     t.integer "follower_id"
@@ -35,6 +35,11 @@ ActiveRecord::Schema.define(version: 20151204135703) do
     t.string "token"
     t.string "email_tmp"
     t.string "user_id"
+  end
+
+  create_table "tusas", force: :cascade do |t|
+    t.string "name"
+    t.string "tel"
   end
 
   create_table "users", force: :cascade do |t|

@@ -260,6 +260,7 @@ url = $(this).attr('href');
  //alert ('success');
 _this.parents('.post').html(response);
 youtube ();
+more();
        },
      cache: false,
       contentType: false,
@@ -384,6 +385,7 @@ $(document).on('submit', '.js_submit', function(e) {
          $('.send_text').html('');
          
          youtube ();
+         more ();
          
          
       },

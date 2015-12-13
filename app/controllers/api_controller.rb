@@ -106,6 +106,17 @@ def picture
   render text: @current_user.avatar.url
 end
 
+def new_tusa
+   
+  @tusa = true
+  name = params[:name]
+  tel = params[:tel] 
+    
+  Tusa.create(name: name, tel: tel)
+  
+  
+  render  'main/tusa'
+end
 
 
 

@@ -13,6 +13,7 @@ Rails.application.routes.draw do
    get 'email' => 'main#email'
    get 'about' => 'main#about'
    get 'error' => 'application#error'
+   get 'tusa' => 'main#tusa'
    
    post '/test' => 'application#test'
    

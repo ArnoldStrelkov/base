@@ -1,0 +1,62 @@
+
+  <% if @tusa %>
+  
+  <div class='css_margin post'>
+    
+   <h3>Ваша заявка принята</h3> <br>
+      Ждите нашего звонка!
+  
+    <br><br>
+    
+ </div>
+  <a class="css_button_menu onepix" href="/"> Перейти в ленту новостей</a>
+     <br><br>
+     
+  <% else %>
+  
+   <div class='css_margin post'>
+    
+   <h3>Стартап тусовка</h3> <br>
+      
+  Стартап тусовка - это:
+   
+   <br><br>
+   1) знакомство с самыми активными ребятами Находки<br>
+   2) обмен идеями для стартапов<br>
+   3) возможность найти партнеров для совместного старта проекта<br>
+    
+    <br><br>
+    
+ </div>
+   
+   Для записи на встречу введи свое имя и телефон:
+   
+  
+  
+  <form method="POST" action="/api/new_tusa" class="js_tusa_add"  >
+              
+              <br>
+                <label >Имя</label> <br>
+                <input name="name" type="text" class="form-control  " placeholder=""
+                value="<%= @current_user.name if @current_user %>">
+                <br> <br>
+                <label >Телефон</label> <br>
+                 <input name="tel" type="text" class="form-control  " placeholder="">
+                
+               <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+                <br> <br>
+				 
+				 <div class='send'>
+                <button type="submit" class=" css_button_menu wide onepix">Записаться</button> 
+                </div>
+                
+                <div class='send_text'>
+                 
+                </div>
+                   <br>
+    </form>
+                
+              
+   <br><br>
+  
+<% end %>

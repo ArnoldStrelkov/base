@@ -149,6 +149,10 @@ class MainController < ApplicationController
     @title = 'О проекте'
   end
   
+  def tusa
+    @title = 'Стартап тусовка'
+  end
+  
   
   
 end
