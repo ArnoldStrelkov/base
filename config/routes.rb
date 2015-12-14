@@ -14,6 +14,8 @@ Rails.application.routes.draw do
    get 'about' => 'main#about'
    get 'error' => 'application#error'
    get 'tusa' => 'main#tusa'
+   get 'ads' => 'main#ads'
+   get 'myads' => 'main#myads'
    
    post '/test' => 'application#test'
    

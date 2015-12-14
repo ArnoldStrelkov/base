@@ -153,6 +153,20 @@ class MainController < ApplicationController
     @title = 'Стартап тусовка'
   end
   
+  def ads
+    @title = 'Обьявления'
+    @menu_ads = true
+    @all = Ad.all.order(id: :desc)
+    
+  end
+  
+  def myads
+    @title = 'Мои обьявления'
+    @menu_my_ads = true
+    @all = Ad.where(user_id: @current_user.id).order(id: :desc)
+    render :ads
+  end
+  
   
   
 end

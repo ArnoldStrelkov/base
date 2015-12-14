@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
      mount_uploader :avatar , AvatarUploader
     
     
-    
+    has_many :ads, dependent: :destroy
     has_many :posts, dependent: :destroy
     #has_many :test, foreign_key: :user_id, class_name: "Post"
     has_many :savedposts

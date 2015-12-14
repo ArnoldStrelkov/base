@@ -107,7 +107,8 @@ def picture
 end
 
 def new_tusa
-   
+    
+  @title = 'Ок'
   @tusa = true
   name = params[:name]
   tel = params[:tel] 
@@ -118,6 +119,26 @@ def new_tusa
   render  'main/tusa'
 end
 
+def createad
+  
+  title = params[:title]
+    body = params[:body] 
+   
+    res = Ad.create(body: body, title: title, user_id: @current_user.id)
+    @all = []
+    @all = @all << res
+   #render text: res.body
+    render  'main/ads', layout: false
+  
+end
+
+def ads_delete
+  id = params[:id]
+  obj = Ad.find(id)
+  obj.destroy if obj.user.id == @current_user.id
+  
+  render text: '1'
+end
 
 
 

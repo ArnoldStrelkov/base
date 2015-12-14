@@ -1,0 +1,27 @@
+<div class="css_fon">
+      
+  <div class="css_form_for_post_display_none">
+    <form method="POST" action="/api/newad" class="js_ad_submit"  >
+              
+              <br>
+               <!--  <label >Заголовок</label> <br>
+                <input name="title" type="text" class="form-control  " placeholder="">
+                <br> <br> -->
+                <label >Текст обьявления</label> <br>
+                <textarea name="body" type="text " rows="10" class="form-control  wide"></textarea>
+                
+                <br>
+                
+               <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+               
+				 
+				 <div class='send'>
+                <button type="submit" class=" css_button_menu wide onepix">Отправить</button> 
+                </div>
+                
+                <div class='send_text'> </div>
+                   <br>
+    </form>
+   </div> 
+  
+   </div> 

@@ -1,4 +1,3 @@
-
 <% for post in @all %>
 
 <div class="post">
@@ -7,20 +6,6 @@
   
     <h3><%= post.title %></h3>
    
-    
-     <% unless post.foto.url.to_s == '' %>
-     
-    <img class="post_pic" src="<%= post.foto.url  %>" alt="" border="0"> 
-     <% end %>
-    
-        
-     <% if !post.video.to_s.empty? %>
-            
-            <div class="youtube" id="<%= post.video.split('?v=')[1] %>"  >
-            </div>
-        
-        <% end%>
-    
     
     <div class="post_in css_margin"><%= h(post.body).gsub("\n", "<br>").html_safe %></div>
     
@@ -38,10 +23,7 @@
                
                <td >
                     
-                         <% if @current_user and (@current_user.id.to_s == post.user.id.to_s) %>
-                         <a class="js_button_edit  css_button_menu"
-                              href="/api/edit/<%= post.id %>">ред.</a>
-                              <% end  %>
+                        
                               </td >
                
                 
@@ -51,14 +33,9 @@
                     
                          <% if @current_user.id.to_s == post.user.id.to_s %>
                          
-                          <a class="js_delete  css_button_menu"
-                              href="/api/delete/<%= post.id %>">удал.</a>
-                         <% else %> 
-                              <a class="js_read  css_button_menu"
-                              href="/api/read/<%= post.user.id %>">
-                                  <% if @current_user.following? (post.user) %>читаю<% else %>
-                                  читать
-                                  <% end %></a> 
+                          <a class="js_ad_delete  css_button_menu"
+                              href="/api/ads_delete/<%= post.id %>">удал.</a>
+                         
                     
                         <% end %>
                     <% end %>

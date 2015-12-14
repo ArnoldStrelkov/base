@@ -1,0 +1,36 @@
+<div class="css_fon">
+      
+  <div class="css_form_for_post_display_none">
+    <form method="POST" action="/api/post/create" class="js_submit"  >
+              
+              <br>
+                <label >Заголовок</label> <br>
+                <input name="title" type="text" class="form-control  " placeholder="">
+                <br> <br>
+                <label >Текст</label> <br>
+                <textarea name="body" type="text " rows="10" class="form-control  wide"></textarea>
+                
+                <br>
+                <input type="file" name="picture" class="post_picture_input" style = "display: none" >
+                
+                <img id="" class=" image_preview js_add_post_picture post_pic" src="" alt="" border="0">
+                
+                <a class="js_add_post_picture css_button_menu add_foto_menu" href="#">добавить фото</a>
+                
+               <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+                <label class="add_foto_menu" >Видео</label> 
+				 <input name="video" type="text" class="form-control add_foto_menu" placeholder="вставьте ссылку на youtube">
+				 <br><br>
+				 
+				 <div class='send'>
+                <button type="submit" class=" css_button_menu wide onepix">Отправить</button> 
+                </div>
+                
+                <div class='send_text'>
+                 
+                </div>
+                   <br>
+    </form>
+   </div> 
+  
+   </div> 

@@ -75,7 +75,7 @@
         </tr>
         <tr height=107px >
         <td>
-          
+          <a class="css_blog_menu" href="/ads">ОБЬЯВЛЕНИЯ </a>
           </td>
         
         <td><a class="css_blog_menu" href="/tusa">ТУСОВКА </a>
@@ -140,58 +140,28 @@
     <% if @menu_all_users %>
 <div class="burger"><a class=" css_link_burger" href="/all">БЛОГИ</a></div>
     <% end %>
+    <% if @menu_ads and @current_user %>
+<div class="burger"><a class=" css_link_burger" href="/myads">МОИ ОБЬЯВЛЕНИЯ</a></div>
+    <% end %>
+    <% if @menu_my_ads %>
+<div class="burger"><a class="js_add_ad js_add_form_for_post  css_link_burger" href="#">ДОБАВИТЬ</a></div>
+    <% end %>
     
-    
-    
-  
-  <% if @add %>
+    <% if @add %>
 <div class="burger"><a class="js_add_form_for_post  css_link_burger" href="#">НОВЫЙ ПОСТ</a></div>
     <% end %>
   </div>
 
   
   <% if @add %>
- 
-   
-   <div class="css_fon">
-      
-  <div class="css_form_for_post_display_none">
-    <form method="POST" action="/api/post/create" class="js_submit"  >
-              
-              <br>
-                <label >Заголовок</label> <br>
-                <input name="title" type="text" class="form-control  " placeholder="">
-                <br> <br>
-                <label >Текст</label> <br>
-                <textarea name="body" type="text " rows="10" class="form-control  wide"></textarea>
-                
-                <br>
-                <input type="file" name="picture" class="post_picture_input" style = "display: none" >
-                
-                <img id="" class=" image_preview js_add_post_picture post_pic" src="" alt="" border="0">
-                
-                <a class="js_add_post_picture css_button_menu add_foto_menu" href="#">добавить фото</a>
-                
-               <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-                <label class="add_foto_menu" >Видео</label> 
-				 <input name="video" type="text" class="form-control add_foto_menu" placeholder="вставьте ссылку на youtube">
-				 <br><br>
-				 
-				 <div class='send'>
-                <button type="submit" class=" css_button_menu wide onepix">Отправить</button> 
-                </div>
-                
-                <div class='send_text'>
-                 
-                </div>
-                   <br>
-    </form>
-   </div> 
-  
-   </div> 
-   
-   
+    <%= render "new_post_form" %>
   <% end %>
+  
+  <% if @menu_my_ads %>
+    <%= render "new_ad_form" %>
+  <% end %>
+  
+  
 
  </div> 
  <div class="yield"> 
