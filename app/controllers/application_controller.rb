@@ -73,7 +73,7 @@ class ApplicationController < ActionController::Base
           
           #File.open('/home/ubuntu/workspace/public/user.png') do |f|
           File.open('/home/deploy/base/public/user.png') do |f|  
-          #
+          #1
            @current_user.avatar = f
           end
           
