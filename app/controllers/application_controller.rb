@@ -2,29 +2,67 @@ class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
-  before_action :login
+  before_action :login #, except: :provider
   
+    def provider
+      req = request.env['omniauth.auth']
+      provider = req.provider.to_s
+      uid = req.uid.to_s
+      name = req.info.name
+      avatar = req.info.image
+      
+      @current_user = User.where("provider = ? AND uid = ?", provider, uid).first
+      
+      if @current_user
+          
+      else
+        @current_user = User.new
+        @current_user.provider = provider
+        @current_user.uid = uid
+        @current_user.name = name
+        @current_user.remote_avatar_url = avatar.gsub('http','https') + '?type=large'
+        @current_user.save!
+        
+        
+        newfeed
+        
+        #render json: request.env['omniauth.auth'] and return
+         
+      end
+      
+    @token = User.new_remember_token
   
+    obj = Token.new
+    obj.email_tmp = 'aa@aa.aa'
+    obj.token = User.encrypt(@token)
+    obj.user_id = @current_user.id
+    obj.save
+      cookies.permanent[:id] = obj.id
+      cookies.permanent[:token] = @token
+    
+      
+    redirect_to :root 
+    end
     
     
     def login
-      @admin = 1
+      @admin = 15
       @current_user = nil
       
       unless cookies[:id].nil?
       obj = Token.find_by(id: cookies[:id])
       
-       if obj.nil?
-         cookies.delete(:token)
-         cookies.delete(:id)
-    
-          redirect_to :root and return
-       end
+         if obj.nil?
+           cookies.delete(:token)
+           cookies.delete(:id)
+      
+            redirect_to :root and return
+         end
       
       
-      if User.encrypt(cookies[:token]) == obj.token
-        @current_user = User.find_by(id: obj.user_id)
-      end  
+        if User.encrypt(cookies[:token]) == obj.token
+          @current_user = User.find_by(id: obj.user_id)
+        end  
       
       end
     end
@@ -41,7 +79,7 @@ class ApplicationController < ActionController::Base
         render text: 'error' and return
       end
       
-      UserMailer.welcome_email(params[:email], @token ).deliver_later
+     # UserMailer.welcome_email(params[:email], @token ).deliver_later
      @email_url = 'http://' + obj.email_tmp.split('@')[1].to_s
     render :enter,  layout: false
     end  
@@ -79,8 +117,7 @@ class ApplicationController < ActionController::Base
           
           @current_user.save
           
-          feed = User.find(@admin).followed_user_ids
-          feed.each {|id| Feed.create(followed_id: id, follower_id: @current_user.id) }
+          newfeed
           
           @new_user = true
           @title = 'Завершение регистрации'
@@ -132,8 +169,13 @@ class ApplicationController < ActionController::Base
     
     end
     
-    
-    
+    def newfeed 
+    feed = User.find(@admin).followed_user_ids
+    feed.each {|id| Feed.create(followed_id: id, follower_id: @current_user.id) }
+    end
   
+    def newtoken 
+      
+    end
   
 end

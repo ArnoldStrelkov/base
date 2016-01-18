@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
    root 'main#feed'
+   #root 'sochi#index'
    post 'enter' => 'application#enter'
    get 'login/:token' => 'application#login_by_email'
    get 'exit' => 'application#exit'
@@ -25,6 +26,8 @@ Rails.application.routes.draw do
 post '/all' => 'main#all_add'
 post 'allusers' => 'main#allusers_add'
 post 'feedusers' => 'main#feedusers_add'
+
+get '/auth/:provider/callback', to: 'application#provider'
 
 get '/:id' => 'main#user'
 post '/:id' => 'main#user_add'

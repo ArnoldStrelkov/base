@@ -10,6 +10,11 @@ class User < ActiveRecord::Base
     
     has_many :feeds, foreign_key: "follower_id", class_name:  "Feed", dependent: :destroy
     has_many :followed_users, through: :feeds, source: :followed
+    
+    has_many :reverse_feeds, -> { i_only }, foreign_key: "followed_id", class_name:  "Feed"
+    has_many :following_users,  through: :reverse_feeds, source: :follower
+    
+    
   
   def following?(other_user)
     feeds.find_by(followed_id: other_user.id)

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151213141050) do
+ActiveRecord::Schema.define(version: 20160114100644) do
 
   create_table "ads", force: :cascade do |t|
     t.string  "title"
@@ -53,6 +53,8 @@ ActiveRecord::Schema.define(version: 20151213141050) do
     t.string "email"
     t.string "token"
     t.string "avatar"
+    t.string "provider"
+    t.string "uid"
   end
 
 end

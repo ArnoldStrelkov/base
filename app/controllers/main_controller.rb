@@ -12,8 +12,8 @@ class MainController < ApplicationController
       ids = [1]
       end
     end
-    @all = Post.where(user_id: ids).order(id: :desc).limit(10)
-    
+    #@all = Post.where(user_id: ids).order(id: :desc).includes(:user ).limit(10)
+    @all = Post.where(user_id: ids).order(id: :desc).includes(:user => [:following_users] ).limit(10)
   end
   
   def feed_add
@@ -25,7 +25,8 @@ class MainController < ApplicationController
     else
     ids = User.find(@admin).followed_user_ids  
     end
-    @all = Post.where(user_id: ids).order(id: :desc).offset(10*page.to_i).limit(10)
+    #@all = Post.where(user_id: ids).order(id: :desc).offset(10*page.to_i).limit(10)
+    @all = Post.where(user_id: ids).order(id: :desc).offset(10*page.to_i).includes(:user => [:following_users] ).limit(10)
     render :feed, layout: false
   end
   
@@ -33,7 +34,7 @@ class MainController < ApplicationController
     
     @title = 'Все блоги'
     @menu_all = true
-    @all = Post.all.order(id: :desc).limit(10)
+    @all = Post.all.order(id: :desc).includes(:user => [:following_users] ).limit(10)
     render :feed
   end
   
@@ -41,7 +42,7 @@ class MainController < ApplicationController
     page = params[:page]
     @title = 'Все блоги'
     @menu_all = true
-    @all = Post.all.order(id: :desc).offset(10*page.to_i).limit(10)
+    @all = Post.all.order(id: :desc).offset(10*page.to_i).includes(:user => [:following_users] ).limit(10)
     render :feed, layout: false
   end
   
