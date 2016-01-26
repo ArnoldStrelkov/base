@@ -31,6 +31,7 @@ gem "mini_magick"
 gem 'rest-client'
 gem 'omniauth'
 gem 'omniauth-facebook'
+gem 'omniauth-vkontakte'
 
 # Use Unicorn as the app server
 # gem 'unicorn'

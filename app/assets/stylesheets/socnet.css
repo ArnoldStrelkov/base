@@ -1,0 +1,25 @@
+.s-001, .s-002, .s-003{
+	background: url(/sprites.png) no-repeat;
+	display: block;
+	float: left;
+	width: 65px;
+	height: 65px;
+	margin-right: 20px;
+
+}
+
+.s-001{
+	background-position: 0 0;
+
+}
+
+.s-002{
+	background-position: -70px 0;
+	
+}
+
+.s-003{
+	background-position: -140px 0;
+
+}
+

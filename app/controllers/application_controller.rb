@@ -6,10 +6,17 @@ class ApplicationController < ActionController::Base
   
     def provider
       req = request.env['omniauth.auth']
+      
+      #render json: req and return
+      
       provider = req.provider.to_s
       uid = req.uid.to_s
       name = req.info.name
       avatar = req.info.image
+      
+      #render text: provider + uid + name + avatar  and return
+      
+      
       
       @current_user = User.where("provider = ? AND uid = ?", provider, uid).first
       
@@ -20,7 +27,9 @@ class ApplicationController < ActionController::Base
         @current_user.provider = provider
         @current_user.uid = uid
         @current_user.name = name
-        @current_user.remote_avatar_url = avatar.gsub('http','https') + '?type=large'
+        (@current_user.remote_avatar_url = avatar.gsub('http','https') + '?type=large') if provider == 'facebook'
+        (@current_user.remote_avatar_url = avatar) if provider == 'vkontakte'
+
         @current_user.save!
         
         
@@ -48,6 +57,7 @@ class ApplicationController < ActionController::Base
     def login
       @admin = 15
       @current_user = nil
+      $var1 = User.find(@admin)
       
       unless cookies[:id].nil?
       obj = Token.find_by(id: cookies[:id])
@@ -62,6 +72,7 @@ class ApplicationController < ActionController::Base
       
         if User.encrypt(cookies[:token]) == obj.token
           @current_user = User.find_by(id: obj.user_id)
+          $var1  = @current_user unless @current_user.nil?
         end  
       
       end
@@ -109,8 +120,8 @@ class ApplicationController < ActionController::Base
           @current_user.email = obj.email_tmp
           @current_user.name = obj.email_tmp.split('@')[0].to_s
           
-          #File.open('/home/ubuntu/workspace/public/user.png') do |f|
-          File.open('/home/deploy/base/public/user.png') do |f|  
+          File.open('/home/ubuntu/workspace/public/user.png') do |f|
+          #File.open('/home/deploy/base/public/user.png') do |f|  
           #123
            @current_user.avatar = f
           end

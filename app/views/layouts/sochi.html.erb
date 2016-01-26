@@ -1,45 +1,79 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta name="viewport" content="width=device-width"/>
+ 
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Workspace</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
-   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800&subset=latin,cyrillic" rel="stylesheet" type="text/css">
+   
 
+		<meta charset="utf-8">
+		<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Nunito:400,300,700" rel="stylesheet" type="text/css">
 </head>
 <body>
-  
-  <div class="logo_line ">
-      
-      
-       
-       
-       
     
-           
-            <br>
-            <br>
-            <br>
-           
-              
-        
-          
-            <br>
-     </div>
+ <div class="top_line ">  </div>  
+  
+    <div class="overlay open">
+			<nav>
+				<ul>
+					<li><a href="#about"><i class="fa fa-question-circle"></i>ask</a></li>
+					<li><a href="#features"><i class="fa fa-vk"></i>vkontakte</a></li>
+			
+					<li><a href="#screenshots"><i class="fa fa-instagram"></i>instagramm</a></li>
+					<li><a href="#download"><i class="fa fa-gear"></i>settings</a></li>
+				</ul>
+			</nav>
+	</div>	
+	
+		<div class="wide">
+	
+			<div class="main">
+			    <a href="#download"><i class="fa fa-plus-circle "></i></a>
+			    
+		
+			    
+			<ul id="menu">
+	
+				<li>
+					<a href="#">все блогеры</a>
+					<ul>
+						<li><a href="#">избранные блогеры</a></li>
+						<li><a href="#">мой блог</a></li>
+						<li><a href="#">сохраненные посты</a></li>
+					</ul>
+				</li>
+				<li>
+					<a href="#">пользователи</a>
+					<ul>
+						<li><a href="#">пользователи</a></li>
+						<li><a href="#">лента</a></li>
+						
+					</ul>
+				</li>
+				
+				</li>
+			</ul>    
+			 
+			</div>   
+		</div> 	    
+			    
+			    
+<div style="clear:both"> </div>
+  
+  
+  
+ 
      
      
    
   
 <div class="main"> 
-   <div class="btn one"> </div> 
-   <div class="btn two"> </div> 
-   <div class="btn three"> </div> 
-   <div class="btn four"> </div>  
-  
 
-
+   
 
 
     <br>
@@ -48,11 +82,14 @@
     
    
 
-<div style='clear:both'>СОЧИ ЛЭЙАУТ </div> 
   
 <%= yield %>
 
   </div>
+  
+  
+
+  
   
 </body>
 </html>
