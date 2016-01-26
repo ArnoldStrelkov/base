@@ -1,5 +1,7 @@
 class MainController < ApplicationController
   
+  layout 'sochi'
+  
   def feed
     @menu_read = true
     @title = 'Читаемые блоги'

@@ -78,15 +78,20 @@ a {
 
 .main i {
     display: block;
-    font-size: 55px;
-    padding-bottom: 20px;
-    color: #05F732;
-    margin-top: -10px;
-padding-right: 45px;
-    margin-left: 90px;
+    width: 40px;
     float: left;
+    height: 20px;
 
 }
+
+.main i:hover {
+   
+    color: #424242;
+   
+}
+
+
+
 .fa {
     display: inline-block;
     font: normal normal normal 14px/1 FontAwesome;
@@ -97,7 +102,7 @@ padding-right: 45px;
 }
 
 
-.wide {
+.wide_logo {
     min-width: 600px;
      height: 50px;
      background-color: #8566C4;
@@ -107,7 +112,7 @@ padding-right: 45px;
 #menu {
 	padding: 0;
 	margin: 0;
-
+margin: 0 auto;
 	font-family: 'Nunito', sans-serif;
 	font-weight: bold;
 	text-transform: uppercase;
@@ -120,7 +125,7 @@ padding-right: 45px;
 	height: 38px;
 	padding: 0;
 	margin: 0;
-	width: 170px;
+	width: 200px;
 	text-align: center;
 	
 	position: relative;
@@ -130,7 +135,7 @@ padding-right: 45px;
 	list-style: none;
 	padding: 0;
 	margin: 0;
-	width: 170px;
+	width: 200px;
 	display: none;
 	position: absolute;
 	left: 0;
@@ -140,13 +145,13 @@ padding-right: 45px;
 	float: none;
 	height: 38px;
 	margin: 0;
-	width: 170px;
+	width: 200px;
 	text-align: center;
 	background: #7F7F7F;
 	}
 #menu li a {
 	display: block;
-	width: 170px;
+	width: 200px;
 	height: 38px;
 	color: #fff;
 	text-decoration: none;
@@ -157,3 +162,57 @@ padding-right: 45px;
 #menu li:hover {
 	background: #424242;
 	}
+	
+	
+.s_login_form{
+    width: 600px;
+    margin: 0 auto;
+}
+
+.s_form_input{
+    border: 1px solid #cccccc;
+    height: 32px;
+    font-size: 16px;
+    line-height: 1.42857;
+    color: #555555;
+    vertical-align: middle;
+    background-color: white;
+    background-image: none;
+    outline: none;
+   font-family: 'Open Sans', sans-serif;
+   padding-left: 10px;
+}
+
+
+.s_form_input:focus {
+  
+  border: 1px solid #8566c4;
+}
+
+.s_submit_button{
+text-decoration:none; 
+ text-align:center; 
+ padding:11px 32px; 
+ border:none; 
+ -webkit-border-radius:29px;
+ -moz-border-radius:29px; 
+ border-radius: 29px; 
+     margin-top: 22px;
+ font-weight:bold; 
+ color:#ffffff; 
+ background:#8566c4;
+ cursor: pointer;
+}
+
+.s_submit_button:hover{
+
+ background-color:#56a2e9; 
+ background-image: -moz-linear-gradient(top, #56a2e9 0%, #8566c4 100%); 
+ background-image: -webkit-linear-gradient(top, #56a2e9 0%, #8566c4 100%); 
+ background-image: -o-linear-gradient(top, #56a2e9 0%, #8566c4 100%); 
+ background-image: -ms-linear-gradient(top, #56a2e9 0% ,#8566c4 100%); 
+ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8566c4', endColorstr='#8566c4',GradientType=0 ); 
+ background-image: linear-gradient(top, #56a2e9 0% ,#8566c4 100%);   
+ 
+  
+ }

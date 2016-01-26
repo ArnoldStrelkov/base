@@ -1,0 +1,40 @@
+<div class=css_hr2> </div>
+     <div class=" s_login_form" style='display: none'>
+      
+      
+       <form method="POST" action="/enter" class="email_enter"  >
+      
+        <table><tr><td width=80px></td><td>
+                  <br>
+                <label class=""  >Для входа введите Ваш e-mail</label> <br><br>
+                <input name="email" style='width: 300px' type="text" class="s_form_input" placeholder="">
+              <br><br>
+               <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+               
+			</td><td>
+
+
+
+            <br>
+                <button type="submit" class="js_test s_submit_button">ГОТОВО</button> 
+           </td></table>
+           
+            </form>
+            
+           
+                <table><tr><td width=80px></td><td>
+             <label class=""  >Или войдите с помошью соцсетей</label><br><br> </td><td></td></tr>
+                 
+                 
+                 <tr><td></td><td>
+                 <a class="s-001"  href="/auth/facebook"></a>
+                 <a class="s-002"  href="/auth/vkontakte"></a>
+                 <a class="s-003"  href="#"></a>
+                 </td>
+                 <td></td>
+                 </tr>
+                 
+                 
+             </table>
+             <br>
+     </div>
