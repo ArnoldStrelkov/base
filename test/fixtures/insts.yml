@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  inst: MyString
+  user_id: 
+
+two:
+  inst: MyString
+  user_id: 

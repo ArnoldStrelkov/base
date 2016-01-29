@@ -4,8 +4,9 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
    #root 'main#feed'
-   root 'sochi#index'
+   root 'main#feed'
    #get 'sochi' => 'sochi#index'
+   resources :inst
    post 'enter' => 'application#enter'
    get 'login/:token' => 'application#login_by_email'
    get 'exit' => 'application#exit'

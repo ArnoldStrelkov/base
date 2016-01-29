@@ -5,6 +5,11 @@ class MainController < ApplicationController
   def feed
     @menu_read = true
     @title = 'Читаемые блоги'
+    
+    @s_choise_href  = '/feedusers'
+    @s_choise_text = 'Читаемые пользователи'
+    @s_menu = [0, 1, 2]
+    
     if @current_user
     ids = @current_user.followed_user_ids
     else
@@ -36,6 +41,11 @@ class MainController < ApplicationController
     
     @title = 'Все блоги'
     @menu_all = true
+    @s_menu = [1, 0, 2]
+    
+    @s_choise_href  = '/allusers'
+    @s_choise_text = 'все пользователи'
+    
     @all = Post.all.order(id: :desc).includes(:user => [:following_i_ams] ).limit(10)
     render :feed
   end
@@ -55,6 +65,9 @@ class MainController < ApplicationController
   def feedusers
     
     @title = 'Читаемые блогеры'
+    @s_choise_href  = '/'
+    @s_choise_text = 'Читаемая лента'
+    @s_menu = [0, 1, 2]
     @menu_read_users = true
     if @current_user
     @users = @current_user.followed_users.limit(10)
@@ -82,6 +95,9 @@ class MainController < ApplicationController
   def allusers
     
     @menu_all_users = true
+    @s_choise_href  = '/all'
+    @s_choise_text = 'вся лента'
+     @s_menu = [1, 0, 2]
     @title = 'Все блогеры'
     @users = User.all.limit(10)
     render :feedusers
@@ -106,6 +122,13 @@ class MainController < ApplicationController
     @add = false 
     @all = Post.where("user_id = ?", params[:id]).order(id: :desc).limit(10)
     @add = true if @current_user and (@current_user.id.to_s == params[:id].to_s)
+    if @add
+      @s_choise_href  = '/'
+      @s_choise_text = 'мои подписчики'
+      
+    end
+    @s_menu = [2, 0, 1]
+    
     render :feed
     
   end

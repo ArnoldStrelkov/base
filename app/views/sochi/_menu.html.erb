@@ -1,0 +1,44 @@
+<div class="main">
+ 
+    
+<ul id="menu">
+    
+    
+    
+    <% if @add %>
+	<li>
+	    <a href="#"  class="js_add_form_for_post"><div class="fa fa-plus-circle "></div> новый пост</a>
+	</li>
+	<% elsif @inst %>
+	<li>
+	 	<a href="#"  class="js_add_inst"><div class="fa fa-plus-circle "></div> новое фото</a>
+	</li>
+	
+	<% else %>
+	<div style="height: 20px; width: 200px; float: left;"></div>
+    <% end %>
+	
+	<li>
+	
+		<a href="<%= @s_choise_href %>"><%= @s_choise_text %></a>
+		
+	
+		
+	</li>
+<% unless @s_menu.nil? %>
+	<li>
+		<a href="#"><%= @s_menu_text["#{@s_menu[0]}".to_i]  %> <div class="fa fa-caret-down "></div> </a>
+		<ul>
+			<li><a href="<%= @s_menu_href["#{@s_menu[1]}".to_i]  %>"><%= @s_menu_text["#{@s_menu[1]}".to_i] %> </a></li>
+		<% unless @current_user.nil? %>
+			<li><a href="<%= @s_menu_href["#{@s_menu[2]}".to_i]  %>"><%= @s_menu_text["#{@s_menu[2]}".to_i] %> </a></li>
+		<% end %>		
+		</ul>
+	</li>
+<% end %>	
+	
+	</li>
+</ul>    
+ 
+ 
+</div>

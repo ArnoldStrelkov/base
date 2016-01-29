@@ -1,0 +1,18 @@
+<% @conut  = 0 %>
+
+<% for item in @all %>
+
+<% @conut  = @conut + 1 %>
+
+<div class="inst_div">
+
+ <img class="inst" src="<%= item.inst.thumb.url  %>" alt="" border="0">
+ 
+</div>
+
+<% if @conut == 3%>
+<div style="clear:both"> </div>
+<% @conut  = 0  %>
+<% end %>
+
+<% end %>

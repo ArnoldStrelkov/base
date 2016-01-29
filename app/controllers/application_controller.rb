@@ -57,6 +57,10 @@ class ApplicationController < ActionController::Base
     def login
       @admin = 15
       @current_user = nil
+      
+      
+      
+      
       $var1 = User.find(@admin)
       
       unless cookies[:id].nil?
@@ -76,6 +80,11 @@ class ApplicationController < ActionController::Base
         end  
       
       end
+      
+      @s_menu_href = ["\\", '\\all', "\\#{@current_user.id unless @current_user.nil?}"]
+      @s_menu_text = ['читаемая лента', 'вся лента', 'моя лента']
+      
+      
     end
     
     def enter

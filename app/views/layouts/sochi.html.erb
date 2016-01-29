@@ -24,7 +24,7 @@
 					<li><a href="#about"><i class="fa fa-question-circle"></i>ask</a></li>
 					<li><a href="\"><i class="fa fa-vk"></i>vkontakte</a></li>
 			
-					<li><a href="#screenshots"><i class="fa fa-instagram"></i>instagramm</a></li>
+					<li><a href="<%= inst_index_path %>"><i class="fa fa-instagram"></i>instagramm</a></li>
 				
 				<% if @current_user %>
 					<li><a href="\settings"><i class="fa fa-gear"></i>settings</a></li>
@@ -35,64 +35,37 @@
 			</nav>
 	</div>	
 	
-		<div class="wide_logo">
+<div class="wide_logo">
+
+
+	<%= render 'sochi/menu' %>
 	
-			<div class="main">
-			    
-		
-		
-			    
-			<ul id="menu">
-				<li>
-					<a href="#"><div class="fa fa-plus-circle "></div> новый пост</a>
-					
-				</li>
-				<li>
-					<a href="#">пользователи</a>
-					<ul>
-						<li><a href="#">пользователи</a></li>
-						<li><a href="#">лента</a></li>
-						
-					</ul>
-				</li>
 	
-				<li>
-					<a href="#">все блогеры <div class="fa fa-caret-down "></div> </a>
-					<ul>
-						<li><a href="#">избранные блогеры</a></li>
-						<li><a href="#">мой блог</a></li>
-						<li><a href="#">сохраненные посты</a></li>
-					</ul>
-				</li>
-				
-				
-				</li>
-			</ul>    
-			 
-			 
-			</div>   
-		</div> 	    
+</div> 	    
 			    
 			    
 <div style="clear:both"> </div>
   
 <%= render 'sochi/s_login_form' %>
+<%= render 'inst/inst_form' if @inst %>
   
  
-     
+  
      
    
   
 <div class="main"> 
 
-   
+
+    <%= render "application/new_post_form" %>
 
 
-    <br>
+
+    
     
     
   <div class="yield"> 
-<br>
+
 <div class="new">
     
      </div>   
