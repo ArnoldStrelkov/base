@@ -13,18 +13,21 @@
 	<li>
 	 	<a href="#"  class="js_add_inst"><div class="fa fa-plus-circle "></div> новое фото</a>
 	</li>
-	
+	<% elsif @ask %>
+	<li>
+	 	<a href="\mynewask"  class="">новые вопросы</a>
+	</li>
 	<% else %>
 	<div style="height: 20px; width: 200px; float: left;"></div>
     <% end %>
 	
+		<% unless @s_choise_text.nil? %>
 	<li>
-	
-		<a href="<%= @s_choise_href %>"><%= @s_choise_text %></a>
-		
-	
+		<a href="<%= @s_choise_href %>"><%= @s_choise_text%> </a>
 		
 	</li>
+	 <% end %>
+	 
 <% unless @s_menu.nil? %>
 	<li>
 		<a href="#"><%= @s_menu_text["#{@s_menu[0]}".to_i]  %> <div class="fa fa-caret-down "></div> </a>

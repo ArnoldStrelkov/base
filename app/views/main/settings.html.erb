@@ -1,4 +1,4 @@
-
+<div class=margin10>
 
  <form method="POST"  enctype="multipart/form-data"  action="/settings" class=" "  >
               <% if @new_user %>
@@ -11,19 +11,26 @@
                 <input name="name" maxlength="27" type="text" class="form-control  " placeholder=""
                 value="<%= @current_user.name %>">
                 <br><br>
+               
+               
                 <label >Аватар</label> <br>
+                 <div style='float:left; width:200px; height:200px'>
                 <img id="" class="image_preview" src="<%= @current_user.avatar.url unless @current_user.avatar.nil? %>" alt="" border="0">
                 <br>
-                <input type="file" name="avatar" class="post_picture_input" style = "display: none"  >
-                
                
-                
-                <a class="js_add_post_picture  css_button_menu add_foto_menu" href="#"><%= @current_user.avatar.url.nil? ? 'добавить аватар' : 'сменить аватар' %></a>
-                
+                </div>
+               <div>
+                <br>
+                 <input type="file" name="avatar" class="post_picture_input" style = "display: none"  >
+                <a class="js_add_post_picture  s_submit_button" href="#"><%= @current_user.avatar.url.nil? ? 'добавить аватар' : 'сменить аватар' %></a>
+                <br><br>
                <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-				<br>
-                <button type="submit" class=" css_button_menu wide onepix">СОХРАНИТЬ ИЗМЕНЕНИЯ</button>  
-                 
+				
+                <button type="submit" class=" s_submit_button">сохранить изменения</button>  
+                 <br><br>
     </form>
     <br>
-   
+  <a class=" s_submit_button" href='/exit' > выход<a/>
+  </div>
+  
+ </div>

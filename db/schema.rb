@@ -11,13 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160129100739) do
+ActiveRecord::Schema.define(version: 20160203125916) do
 
   create_table "ads", force: :cascade do |t|
     t.string  "title"
     t.string  "body"
     t.integer "user_id"
   end
+
+  create_table "asks", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "target_id"
+    t.text    "body"
+    t.text    "answer"
+  end
+
+  add_index "asks", ["target_id"], name: "index_asks_on_target_id"
+  add_index "asks", ["user_id"], name: "index_asks_on_user_id"
 
   create_table "feeds", force: :cascade do |t|
     t.integer "follower_id"

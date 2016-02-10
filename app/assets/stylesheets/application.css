@@ -167,7 +167,7 @@ cursor:pointer;
     
     text-align: center;
     DISPLAY: block;
-  /*  font-family: 'Open Sans', sans-serif; */
+    font-family: 'Open Sans', sans-serif; 
     
     FONT-SIZE: 16px;
     FONT-WEIGHT: bold;
@@ -355,5 +355,11 @@ h3 {
 
 .post_pic{
      max-width: 600px;
+      
+}
+
+.margin10{
+     margin-left: 10px;
+     margin-right: 10px;
       
 }

@@ -1,0 +1,46 @@
+ 
+ <div>
+ 
+     <form method="POST" action="/new_ask/<%= @user.id %>" class="js_ask_form"  >
+       <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+       
+       <div class=margin10>     
+       
+      <label >Введите ваш вопрос</label> <br><br>
+      <textarea name="body" type="text " rows="5" class="form-control  wide"></textarea>
+       <br>
+       </div>
+       
+<table border="0">
+            <tr>
+                <td width='100px important!' > <img class="mini_avatar" 
+                src="<%= @user.avatar.url unless @user.avatar.nil? %>" 
+                alt="" border="0"
+                width=70 height=70
+                ></td>
+                
+                <td width='100%'><a class="css_feedusers_name"
+                       href="/<%= @user.id %>"><%= @user.name %></a></td>
+                       
+                
+                <td >
+                    
+                    
+                </td>
+                
+                
+                <td >
+                   <button type="submit" class=" css_button_menu  onepix">Спросить</button>
+                    
+                    </td>
+                
+               
+            </tr>
+        </table>
+        
+   
+        
+        </form>
+<hr class=css_hr>
+
+</div>

@@ -1,0 +1,52 @@
+<% for ask in @ask %>
+
+<div class="post">
+    
+    <form method="POST" action="/mynewask/<%= ask.id  %> " class=""  >
+       <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">    
+  
+    <h3><%= h(ask.body).gsub("\n", "<br>").html_safe %></h3>
+   
+    <textarea name="answer" type="text " 
+    rows="7" class="form-control  wide"
+    style='display:none'></textarea>
+    
+    <br>
+    
+<table border="0">
+            <tr>
+                <td > <img class="mini_avatar" 
+                src="<%= ask.user.avatar.url unless ask.user.avatar.nil? %>" 
+                alt="" border="0"
+                width=50 height=50
+                ></td>
+                
+                <td width="100%"><a class="css_feedusers_name"
+                       href="/<%= ask.user.id unless ask.user.nil? %>"><%= ask.user.name unless ask.user.nil? %></a></td>
+               
+               
+               
+               
+                
+                <td >
+                  
+                  <a href='#' class='js_show_answer_form css_button_menu  onepix'>Ответить</a>
+                  
+                  
+                   <button type="submit" class=" onepix css_button_menu "
+                   style='display:none'  > Готово</button>
+                 
+                    
+                    
+                    </td>
+                
+               
+            </tr>
+        </table>
+
+</form>
+
+<hr class=css_hr>
+</div>
+
+<% end %>

@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
     
     has_many :insts, dependent: :destroy
     has_many :ads, dependent: :destroy
+    has_many :asks, dependent: :destroy
     has_many :posts, dependent: :destroy
     #has_many :test, foreign_key: :user_id, class_name: "Post"
     has_many :savedposts
@@ -10,6 +11,10 @@ class User < ActiveRecord::Base
     
     has_many :feeds, foreign_key: "follower_id", class_name:  "Feed", dependent: :destroy
     has_many :followed_users, through: :feeds, source: :followed
+    
+    has_many :reverse_feeds, foreign_key: "followed_id", class_name:  "Feed"
+    has_many :following_users, through: :reverse_feeds, source: :follower
+    
     
     has_many :reverse_i_ams, -> { i_only }, foreign_key: "followed_id", class_name:  "Feed"
     has_many :following_i_ams,  through: :reverse_i_ams, source: :follower

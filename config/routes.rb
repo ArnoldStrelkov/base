@@ -6,12 +6,33 @@ Rails.application.routes.draw do
    #root 'main#feed'
    root 'main#feed'
    #get 'sochi' => 'sochi#index'
-   resources :inst
+   
    post 'enter' => 'application#enter'
+   post 'new_inst' => 'inst#create'
+   
    get 'login/:token' => 'application#login_by_email'
    get 'exit' => 'application#exit'
    get 'feedusers' => 'main#feedusers'
    get 'allusers' => 'main#allusers'
+   get 'myfollowers' => 'main#my_followers'
+   
+   get 'askfeed' => 'ask#ask_feed'
+   get 'askfeedusers' => 'ask#ask_feed_users'
+   get 'new_ask/:id' => 'ask#new_ask_form'
+   post 'new_ask/:id' => 'ask#new_ask'
+   get 'mynewask' => 'ask#my_new_ask'
+   post 'mynewask/:id' => 'ask#my_new_answer'
+   get 'allask' => 'ask#all_ask'
+   get 'askallusers' => 'ask#ask_all_users'
+   get 'myquestions' => 'ask#my_questions'
+   
+   
+   get 'inst' => 'inst#index', as: :inst_index
+   get 'allusersinst' => 'inst#allusersinst'
+   get 'feedusersinst' => 'inst#feedusersinst'
+   get 'feedinst' => 'inst#feedinst'
+   get 'instuser/:id' => 'inst#instuser'
+   
    get 'all' => 'main#all'
    get 'email' => 'main#email'
    get 'about' => 'main#about'

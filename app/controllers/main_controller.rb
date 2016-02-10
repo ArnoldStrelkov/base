@@ -1,5 +1,6 @@
 class MainController < ApplicationController
   
+  before_action :menu
   layout 'sochi'
   
   def feed
@@ -10,15 +11,7 @@ class MainController < ApplicationController
     @s_choise_text = 'Читаемые пользователи'
     @s_menu = [0, 1, 2]
     
-    if @current_user
-    ids = @current_user.followed_user_ids
-    else
-      if User.find(@admin)
-    ids = User.find(@admin).followed_user_ids 
-      else
-      ids = [1]
-      end
-    end
+    
     #@all = Post.where(user_id: ids).order(id: :desc).includes(:user ).limit(10)
     @all = Post.where(user_id: ids).order(id: :desc).includes(:user => [:following_i_ams] ).limit(10)
   end
@@ -27,11 +20,7 @@ class MainController < ApplicationController
     page = params[:page]
     @menu_read = true
     @title = 'Читаемые блоги'
-    if @current_user
-    ids = @current_user.followed_user_ids
-    else
-    ids = User.find(@admin).followed_user_ids  
-    end
+    
     #@all = Post.where(user_id: ids).order(id: :desc).offset(10*page.to_i).limit(10)
     @all = Post.where(user_id: ids).order(id: :desc).offset(10*page.to_i).includes(:user => [:following_i_ams] ).limit(10)
     render :feed, layout: false
@@ -119,11 +108,11 @@ class MainController < ApplicationController
   def user
     
     @title = User.find(params[:id]).name
-    @add = false 
+    #@add = false 
     @all = Post.where("user_id = ?", params[:id]).order(id: :desc).limit(10)
-    @add = true if @current_user and (@current_user.id.to_s == params[:id].to_s)
+   
     if @add
-      @s_choise_href  = '/'
+      @s_choise_href  = '/myfollowers'
       @s_choise_text = 'мои подписчики'
       
     end
@@ -144,8 +133,19 @@ class MainController < ApplicationController
   end
   
   
+  def my_followers
+    @s_choise_href  = '/'
+    @s_choise_text = 'Читаемая лента'
+    @s_menu = [0, 1, 2]
+    @users = @current_user.following_users.limit(10)
+    render 'feedusers'
+  end
+  
   
   def settings
+    @yellow = ['', '', '', 'yellow']
+    @s_choise_text = nil
+    @add = nil
    
   end
   
@@ -193,7 +193,12 @@ class MainController < ApplicationController
     render :ads
   end
   
-  
+  def menu
+    @s_menu_href = ["\\", '\\all', "\\#{@current_user.id unless @current_user.nil?}"]
+    @s_menu_text = ['читаемая лента', 'вся лента', 'моя лента']
+    @yellow = ['', 'yellow', '', '']
+    @add = true if @current_user #and (@current_user.id.to_s == params[:id].to_s)
+  end
   
 end
 

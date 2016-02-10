@@ -1,0 +1,58 @@
+<% for ask in @ask %>
+
+<div class="post">
+    
+   
+    
+    
+        <div class="post_in css_margin">
+            <%= h(ask.body).gsub("\n", "<br>").html_safe %>
+            
+            
+        </div>
+        
+   <h3><%= h(ask.answer).gsub("\n", "<br>").html_safe %></h3>
+   
+    
+    
+    
+<table border="0">
+            <tr>
+                <td > <img class="mini_avatar" 
+                src="<%= ask.target.avatar.url unless ask.target.avatar.nil? %>" 
+                alt="" border="0"
+                width=70 height=70
+                ></td>
+                
+                <td width="100%"><a class="css_feedusers_name"
+                       href="/<%= ask.target.id unless ask.target.nil? %>"><%= ask.target.name unless ask.target.nil? %></a></td>
+               
+               
+               
+               
+                
+                <td >
+                  
+                 <% if @current_user and @current_user != ask.target %>
+                    <a class="js_ask_ask css_button_menu"
+                       href="/new_ask/<%= ask.target.id %>">
+                        <%= @flash.nil? ? 'спросить' : 'отправлено' %>
+                        </a>
+                   
+                   
+                    <% end %>
+                 
+                    
+                    
+                    </td>
+                
+               
+            </tr>
+        </table>
+
+
+
+<hr class=css_hr>
+</div>
+
+<% end %>

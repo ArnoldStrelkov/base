@@ -81,8 +81,7 @@ class ApplicationController < ActionController::Base
       
       end
       
-      @s_menu_href = ["\\", '\\all', "\\#{@current_user.id unless @current_user.nil?}"]
-      @s_menu_text = ['читаемая лента', 'вся лента', 'моя лента']
+      
       
       
     end
@@ -197,5 +196,20 @@ class ApplicationController < ActionController::Base
     def newtoken 
       
     end
+    
+    def ids 
+      if @current_user
+         @current_user.followed_user_ids
+      else
+          if User.find(@admin)
+          User.find(@admin).followed_user_ids 
+          else
+          [1]
+          end
+      end
+      
+    end
+    
+    
   
 end

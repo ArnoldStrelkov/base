@@ -1,5 +1,5 @@
 .form-control {
-   width: 576px;
+   width: 556px;
     padding: 6px 12px;
     font-size: 16px;
     line-height: 1.42857;
@@ -23,7 +23,7 @@
 
 textarea.form-control {
     
-        width: 576px;
+        width: 556px;
         display:block; 
         font-size: 16px;
         font-family: 'Open Sans', sans-serif;
