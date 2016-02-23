@@ -14,6 +14,7 @@
 e.preventDefault();
 
 $(this).fadeOut(200);
+$('.g_logo').addClass('g_logo_enter');
 $('.g_enter').fadeIn(200);
  
 
@@ -23,6 +24,7 @@ $(document).on('click', '.js_g_enter_form', function(e) {
 e.preventDefault();
 
 $(this).fadeOut(200);
+$('.g_logo').addClass('g_logo_form');
 $('.g_enter_form').fadeIn(200);
 
  
