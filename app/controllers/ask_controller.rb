@@ -67,7 +67,7 @@ class AskController < ApplicationController
   def my_new_ask
     
     @ask = Ask.where(target_id: @current_user.id, answer: nil)
-    @s_choise_href  = '/'
+    @s_choise_href  = '/askfollowers'
     @s_choise_text = 'мои подписчики'
     @s_menu = [2, 0, 1]
     
@@ -92,9 +92,33 @@ class AskController < ApplicationController
     render 'ask_feed'
   end
   
+  
+  def answer
+    
+    @s_choise_href  = '/askallusers'
+    @s_choise_text = 'все пользователи'
+    @s_menu = [1, 0, 2]
+    @ask = Ask.where.not(answer: nil).where("target_id = ?", params[:id]).order(id: :desc).limit(20)
+    
+    render 'ask_feed'
+  end
+  
+  def askfollowers
+    
+    @s_choise_href  = "/myquestions"
+    @s_choise_text = 'мои вопросы'
+    @s_menu = [2, 0, 1]
+    @users = @current_user.following_users.limit(10)
+    render 'ask_feed_users'
+    
+  end
+  
+  
+  
+  
   def my_questions
     
-    @s_choise_href  = '/'
+    @s_choise_href  = '/askfollowers'
     @s_choise_text = 'мои подписчики'
     @s_menu = [2, 0, 1]
   

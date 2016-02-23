@@ -134,9 +134,9 @@ class MainController < ApplicationController
   
   
   def my_followers
-    @s_choise_href  = '/'
-    @s_choise_text = 'Читаемая лента'
-    @s_menu = [0, 1, 2]
+    @s_choise_href  = "/#{@current_user.id unless @current_user.nil?}"
+    @s_choise_text = 'моя лента'
+    @s_menu = [2, 0, 1]
     @users = @current_user.following_users.limit(10)
     render 'feedusers'
   end

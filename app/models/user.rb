@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
     has_many :ads, dependent: :destroy
     has_many :asks, dependent: :destroy
     has_many :posts, dependent: :destroy
+     has_many :wishes, dependent: :destroy
     #has_many :test, foreign_key: :user_id, class_name: "Post"
     has_many :savedposts
     has_many :sv, through: :savedposts, source: :post

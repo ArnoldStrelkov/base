@@ -21,15 +21,15 @@
     <div class="overlay open">
 			<nav>
 				<ul>
-					<li><a class="<%=@yellow[0]%>" href="\askfeed"><i class="fa fa-question-circle"></i>ask</a></li>
-					<li ><a class="<%=@yellow[1]%>" href="\"><i class="fa fa-vk"></i>vkontakte</a></li>
+					<li><a class="topmenu <%=@yellow[0]%>" href="\askfeed"><i class="fa fa-question-circle"></i>ask</a></li>
+					<li ><a class="topmenu <%=@yellow[1]%>" href="\"><i class="fa fa-vk"></i>vkontakte</a></li>
 			
-					<li><a class="<%=@yellow[2]%>"href="<%= inst_index_path %>"><i class="fa fa-instagram"></i>instagramm</a></li>
+					<li><a class="topmenu <%=@yellow[2]%>"href="<%= inst_index_path %>"><i class="fa fa-instagram"></i>instagramm</a></li>
 				
 				<% if @current_user %>
-					<li><a class="<%=@yellow[3]%>" href="\settings"><i class="fa fa-gear"></i>settings</a></li>
+					<li><a class="topmenu <%=@yellow[3]%>" href="\settings"><i class="fa fa-gear"></i>settings</a></li>
 				<% else %>
-					<li><a class="<%=@yellow[3]%> " href="/auth/vkontakte" ><i class="fa fa-arrow-circle-right"></i>enter</a></li>
+					<li><a class="topmenu <%=@yellow[3]%> " href="/auth/vkontakte" ><i class="fa fa-arrow-circle-right"></i>enter</a></li>
 				<% end %>
 				</ul>
 			</nav>

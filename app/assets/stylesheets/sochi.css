@@ -64,7 +64,7 @@ a {
     font-weight: 400;
     font-size: 12px;
     /* -webkit-transition: all 300ms ease-in-out; */
-    transition: all 300ms ease-in-out;
+    transition: all 100ms ease-in-out;
     
      font-family: 'Nunito', sans-serif;
      
@@ -122,14 +122,16 @@ margin: 0 auto;
 #menu li {
 	list-style: none;
 	float: left;
-	height: 38px;
+	height: 50px;
 	padding: 0;
 	margin: 0;
 	width: 200px;
 	text-align: center;
 	
 	position: relative;
-	padding-top: 12px;
+			transition: all 100ms ease-in-out;
+	
+	
 	}
 #menu li ul {
 	list-style: none;
@@ -143,19 +145,22 @@ margin: 0 auto;
 	}
 #menu li ul li {
 	float: none;
-	height: 38px;
+	height: 50px;
 	margin: 0;
 	width: 200px;
 	text-align: center;
 	/* background: #7F7F7F; */
 	background: #4F6DA9;
+		transition: all 100ms ease-in-out;
 	}
 #menu li a {
 	display: block;
 	width: 200px;
-	height: 38px;
+	height: 50px;
 	color: #fff;
 	text-decoration: none;
+	padding-top: 12px;
+
 	}
 #menu li:hover ul {
 	display: block;
@@ -221,13 +226,20 @@ text-decoration:none;
  background-image: -ms-linear-gradient(top, #56a2e9 0% ,#8566c4 100%); 
  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8566c4', endColorstr='#8566c4',GradientType=0 ); 
  background-image: linear-gradient(top, #56a2e9 0% ,#8566c4 100%);   
+ background:#8566c4;
  */
  
- background:#8566c4;
+ background:#FF6400;
   
  }
  
  .yellow{
+   
+    background-color:  #FF6400 !important;
+   
+}
+
+.topmenu:hover{
    
     background-color:  #FF6400 !important;
    

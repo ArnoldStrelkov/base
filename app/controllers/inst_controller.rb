@@ -41,7 +41,7 @@ class InstController < ApplicationController
       
     
     #@inst = true
-    
+    @instuser = 'instuser/'
     @s_choise_href  = '/inst'
     @s_choise_text = 'вся лента'
     @s_menu = [1, 0, 2]
@@ -52,7 +52,8 @@ class InstController < ApplicationController
    end
    
    def feedusersinst
-       
+    @instuser = 'instuser/'
+    
     @s_choise_href  = '/feedinst'
     @s_choise_text = 'Читаемая лента'
     @s_menu = [0, 1, 2]
@@ -68,6 +69,19 @@ class InstController < ApplicationController
    
    
    
+   def instfollowers
+   @instuser = 'instuser/'
+   
+    @s_choise_href  = "/instuser/#{@current_user.id unless @current_user.nil?}"
+    @s_choise_text = 'моя лента'
+    @s_menu = [2, 0, 1]
+    @users = @current_user.following_users.limit(10)
+    render 'main/feedusers'
+   
+   end
+   
+   
+   
    
     def instuser
         
@@ -76,7 +90,7 @@ class InstController < ApplicationController
     @all = Inst.where("user_id = ?", params[:id]).order(id: :desc).limit(30)
     
     if @inst
-      @s_choise_href  = '/'
+      @s_choise_href  = '/instfollowers'
       @s_choise_text = 'мои подписчики'
       
     end

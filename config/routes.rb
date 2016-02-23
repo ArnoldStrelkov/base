@@ -4,11 +4,12 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
    #root 'main#feed'
-   root 'main#feed'
+   root 'wishes#index'
    #get 'sochi' => 'sochi#index'
-   
+   get 'a' => 'main#all'
    post 'enter' => 'application#enter'
    post 'new_inst' => 'inst#create'
+   post 'new_wish' => 'wishes#create'
    
    get 'login/:token' => 'application#login_by_email'
    get 'exit' => 'application#exit'
@@ -25,6 +26,8 @@ Rails.application.routes.draw do
    get 'allask' => 'ask#all_ask'
    get 'askallusers' => 'ask#ask_all_users'
    get 'myquestions' => 'ask#my_questions'
+   get 'answer/:id' => 'ask#answer'
+   get 'askfollowers' => 'ask#askfollowers'
    
    
    get 'inst' => 'inst#index', as: :inst_index
@@ -32,6 +35,7 @@ Rails.application.routes.draw do
    get 'feedusersinst' => 'inst#feedusersinst'
    get 'feedinst' => 'inst#feedinst'
    get 'instuser/:id' => 'inst#instuser'
+   get 'instfollowers'=> 'inst#instfollowers'
    
    get 'all' => 'main#all'
    get 'email' => 'main#email'
@@ -50,11 +54,16 @@ post '/all' => 'main#all_add'
 post 'allusers' => 'main#allusers_add'
 post 'feedusers' => 'main#feedusers_add'
 
+
+get 'wish' => 'wishes#index'
+post 'wish' => 'wishes#add'
+
 get '/auth/:provider/callback', to: 'application#provider'
 
 get '/:id' => 'main#user'
 post '/:id' => 'main#user_add'
-post '/' => 'main#feed_add'
+#post '/' => 'main#feed_add'
+post '/' => 'wishes#add'
 
 
 

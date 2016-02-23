@@ -21,6 +21,7 @@
   $(document).ready(function() {  
  //$(document).on('page:change', function() {  
  
+
  
  var youtube;
 youtube = function() {   
@@ -126,11 +127,19 @@ $(window).scroll(function(){
         $.post( url, {  page: count })
   .done(function( response ) {
     
-   // alert(response);
+    //alert(response);
        
         $('.yield').append(response);
         more();
         youtube ();
+        
+        
+        if (response.length > 0) {
+            var el = jQuery(response);
+            jQuery(".grid").append(el).masonry( 'appended', el, true );
+        }
+        
+        
          hold = true;
     
   });

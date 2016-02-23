@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
-  before_action :login #, except: :provider
+  before_action :login,  except: :provider
   
     def provider
       req = request.env['omniauth.auth']
@@ -17,7 +17,7 @@ class ApplicationController < ActionController::Base
       #render text: provider + uid + name + avatar  and return
       
       
-      
+      @admin = 1
       @current_user = User.where("provider = ? AND uid = ?", provider, uid).first
       
       if @current_user
@@ -55,10 +55,15 @@ class ApplicationController < ActionController::Base
     
     
     def login
-      @admin = 15
+      
+      
+      
+      @admin = 1
       @current_user = nil
       
-      
+      if User.count == 0
+        User.create(name: 'Admin')
+      end  
       
       
       $var1 = User.find(@admin)
@@ -168,7 +173,7 @@ class ApplicationController < ActionController::Base
      
     def exit
     
-    Token.find_by(id: cookies[:id]).destroy  
+    Token.find_by(id: cookies[:id]).destroy unless  Token.find_by(id: cookies[:id]).nil?
     cookies.delete(:token)
     cookies.delete(:id)
     @current_user = nil

@@ -1,0 +1,57 @@
+
+  <% if @grid%>
+<div class="grid">
+     <% end%>
+    
+  <% for wish in @wishes %>
+<div class="grid-item">
+    
+    <div class="g_text ">
+        
+       <div class="g_inner_text">
+           
+           
+           <div class="wrapper">
+	<div class="cell">
+		<div class="content media">
+		<%= simple_format(wish.body) %>
+
+ 
+		</div>
+	</div>
+</div>
+     
+   
+ 
+ 
+ 
+ 
+ 
+ 
+    </div> 
+
+<div class="g_user back_<%= wish.id.to_s.last%>">
+    
+   
+        
+        <% unless  wish.user.avatar_url.nil? %>
+         <div class="div_ava">
+    <img class="g_ava"   src="<%= wish.user.avatar_url  %>" >
+                </div>
+             <% end %>   
+                
+                
+                
+    <%= wish.user.name  %>
+    </div>
+
+
+</div>
+
+</div>
+ <% end %>
+
+
+ <% if @grid%>
+ </div>
+  <% end %>

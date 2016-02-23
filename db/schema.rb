@@ -11,7 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160203125916) do
+ActiveRecord::Schema.define(version: 20160219065117) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "ads", force: :cascade do |t|
     t.string  "title"
@@ -26,8 +29,8 @@ ActiveRecord::Schema.define(version: 20160203125916) do
     t.text    "answer"
   end
 
-  add_index "asks", ["target_id"], name: "index_asks_on_target_id"
-  add_index "asks", ["user_id"], name: "index_asks_on_user_id"
+  add_index "asks", ["target_id"], name: "index_asks_on_target_id", using: :btree
+  add_index "asks", ["user_id"], name: "index_asks_on_user_id", using: :btree
 
   create_table "feeds", force: :cascade do |t|
     t.integer "follower_id"
@@ -41,7 +44,7 @@ ActiveRecord::Schema.define(version: 20160203125916) do
     t.datetime "updated_at", null: false
   end
 
-  add_index "insts", ["user_id"], name: "index_insts_on_user_id"
+  add_index "insts", ["user_id"], name: "index_insts_on_user_id", using: :btree
 
   create_table "posts", force: :cascade do |t|
     t.string  "body"
@@ -76,4 +79,13 @@ ActiveRecord::Schema.define(version: 20160203125916) do
     t.string "uid"
   end
 
+  create_table "wishes", force: :cascade do |t|
+    t.string   "body"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_foreign_key "asks", "users"
+  add_foreign_key "insts", "users"
 end

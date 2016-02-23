@@ -15,7 +15,7 @@
                 ></td>
                 
                 <td width="100%"><a class="css_feedusers_name"
-                       href="/<%= user.id %>"><%= user.name %></a></td>
+                       href="/<%= @instuser  unless @instuser.nil? %><%= user.id %>"><%= user.name %></a></td>
                        
                 <td >
                     <% if @current_user %>

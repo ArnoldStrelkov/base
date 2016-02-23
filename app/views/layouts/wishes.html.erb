@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width"/>
+  <title>Workspace</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800&subset=latin,cyrillic" rel="stylesheet" type="text/css">
+   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
+<body>
+  <div class="d960">
+
+<div class="g_logo">
+<div class="g_inner_logo">
+  <img class="logo_ava" src="/uploads/user/avatar/35/315494e8-96a3-4de0-87ff-c06022fe2e1c_B.jpg">
+</div>
+
+<div class="logo_name">Sunny Lipnitskaya</div>
+<div class="logo_text">Оставь свое пожелание Юле Липницкой!</div>
+  <div class="count">
+    <div class="count_num">
+   <%= Wish.count %> <i class="fa fa-heart-o"></i>
+    </div>
+    <div class="count_text">
+  пожеланий
+    </div>
+  
+  </div>
+<div class="count_button">
+  <a href='#' class="logo_button <%= (@current_user.nil? ? 'js_g_enter_button' : 'js_g_enter_form') %>">новое пожелание</a>
+  
+  </div>
+
+
+</div>
+
+  <div class="g_enter">
+    <div class="g_enter_margin">
+      <div class="g_enter_text">Для того чтобы написать пожелание войди на сайт <br>
+      </div>
+      <div class="count_button">
+      <a href='/auth/vkontakte' class="g_enter_button">войти через vk</a>
+      </div>
+    </div>
+  </div>
+  
+  <div class="g_enter_form">
+    <div class="g_enter_margin">
+       <div class="g_inner_form">
+      
+      
+       <form method="POST" action="/new_wish" class=""  >
+      <div class="g_enter_text">напиши свое пожелание<br>
+         </div>
+      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+      <textarea name="body" type="text " rows="5" class="g_form_texarea"></textarea>
+      
+   
+      <div class="count_button">
+        <button type="submit" class="g_form_submit">Отправить</button> 
+      </div>
+      
+      </form>
+     </div>
+      
+    </div>
+  </div>
+
+
+
+  
+<%= yield %>
+
+</div> 
+</body>
+</html>

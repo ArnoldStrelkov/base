@@ -33,7 +33,7 @@ $(document).on('submit', '.js_ask_form', function(e) {
         data     : $(this).serialize(),
         success  : function(response) {
           
-            _this.closest( "div" ).html('вопрос отправлен').fadeOut(1500);
+            _this.closest( "div" ).html('<div class="flash"> вопрос отправлен</div>').fadeOut(1500);
         }
     });
 });
