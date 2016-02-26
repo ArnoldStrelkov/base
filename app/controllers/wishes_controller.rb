@@ -16,7 +16,7 @@ class WishesController < ApplicationController
    
    body = params[:body]
    w = Wish.new
-   w.body = body
+   w.body = body[0..1000]
    w.user_id = @current_user.id
    w.save
  
