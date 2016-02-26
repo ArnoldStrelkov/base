@@ -1,12 +1,14 @@
 class WishesController < ApplicationController
   
   def index
-     @wishes = Wish.all.order(id: :desc)
+     @wishes = Wish.all.order(id: :desc).limit(10)
      @grid = true
   end  
   
   def add
-     @wishes = Wish.all.order(id: :desc)
+    page = params[:page]
+    
+     @wishes = Wish.all.order(id: :desc).offset(10*page.to_i).limit(10)
      render 'index', layout: false
   end  
   
