@@ -16,7 +16,7 @@ development:
   encoding: unicode
   database: development_database_name
   pool: 5
-  username: deploy
+  username: ubuntu
   password: <%= ENV["PG_PASS"] %>
 
 # Warning: The database defined as "test" will be erased and
