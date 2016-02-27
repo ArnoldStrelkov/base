@@ -41,7 +41,9 @@ class User < ActiveRecord::Base
       def User.encrypt(token)
         Digest::SHA1.hexdigest(token.to_s)
       end
-  
+def User.puts1
+  puts 1
+end  
 
 private
 
