@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width"/>
+  <title>Sunny5</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800&subset=latin,cyrillic" rel="stylesheet" type="text/css">
+   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
+<body>
+  <div class="d960">
+
+<div class="req_logo_1">
+<div class="g_inner_logo">
+  <img class="logo_ava" src="<%= image_path("sunny6.jpg") %>">
+</div>
+
+<div class="logo_name">#юляпоговориснами</div>
+<div class="req_logo_text">Просим Юлю Липницкую <br>
+провести трансляцию в перископе!</div>
+  
+ <div class="req_count" >
+   к просьбе присоединились <span class='span_count'><%= User.count %></span>  человек 
+    </div>
+  
+</div>
+
+
+
+<div class="req_logo_2">
+    <div class="g_inner_logo">
+        <div class="logo_name" >  Обращение к Юле </div>
+    <div class="req_logo_text">  Юля, официальные интерьвю, которые ты изредка даешь телевидинию - это
+    всего лишь жалкое подобие общения с болельшиками. По настоящему круто - это трансляция в перископе. Тебя любит и обожает
+    половина страны. Не бросай нас, твоих болельщиков.  Проведи трансляцию в перископе!
+    Поговори с нами!
+    </div>
+     
+  </div>  
+</div>
+
+<div class="req_logo_3">
+    <div class="g_inner_logo">
+        <div class="logo_name" style="text-align: center;">  Присоединиться к просьбе</div>
+    <div class="req_logo_text">  Уважаемые фанаты, поклонники и болельшики Юли! 
+    Чем больше человек присоединится к просьбе, тем больше вероятность того, что
+    Юля прислушается к нашему пожеланию и действительно проведет трансляцию в перископе.
+    
+ Для того чтобы присединиться к просьбе нажмите кнопку ниже:
+    
+    </div>
+    
+    <div class="req_button_div">
+      <a href='/auth/vkontakte' class="req_button">войти через vk и присоединиться к просьбе</a>
+      </div>
+     
+  </div>  
+</div>
+
+  
+<%= yield %>
+
+</div> 
+
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function (d, w, c) {
+        (w[c] = w[c] || []).push(function() {
+            try {
+                w.yaCounter35688600 = new Ya.Metrika({
+                    id:35688600,
+                    clickmap:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true
+                });
+            } catch(e) { }
+        });
+
+        var n = d.getElementsByTagName("script")[0],
+            s = d.createElement("script"),
+            f = function () { n.parentNode.insertBefore(s, n); };
+        s.type = "text/javascript";
+        s.async = true;
+        s.src = "https://mc.yandex.ru/metrika/watch.js";
+
+        if (w.opera == "[object Opera]") {
+            d.addEventListener("DOMContentLoaded", f, false);
+        } else { f(); }
+    })(document, window, "yandex_metrika_callbacks");
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/35688600" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+</body>
+</html>

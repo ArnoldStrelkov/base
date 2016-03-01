@@ -4,7 +4,8 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
    #root 'main#feed'
-   root 'wishes#index'
+   #root 'wishes#index'
+   root 'request#index'
    #get 'sochi' => 'sochi#index'
    get 'a' => 'main#all'
    post 'enter' => 'application#enter'
@@ -63,7 +64,7 @@ get '/auth/:provider/callback', to: 'application#provider'
 get '/:id' => 'main#user'
 post '/:id' => 'main#user_add'
 #post '/' => 'main#feed_add'
-post '/' => 'wishes#add'
+post '/' => 'request#add'
 
 
 

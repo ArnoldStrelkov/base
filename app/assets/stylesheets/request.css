@@ -1,0 +1,96 @@
+.req_name{
+  display: table;
+  text-align: center;
+  height:50px;
+  
+}
+
+.req_logo_text{
+  color:white;
+  font-size:14px;
+  padding:20px 20px 20px 20px;
+  text-align: justify;
+}
+
+.req_logo_1{
+  width:100%;
+  background-image: linear-gradient(-10deg, #BA1C58 0%, #FF6CA8 100%);
+ background-color:#BA1C58 ;
+}
+
+
+.req_logo_2{
+  width:100%;
+  
+  
+ background-image: linear-gradient(10deg, #5E147D 0%, #AB69C6 100%);
+ background-color:#5E147D ;
+}
+
+.req_logo_3{
+   width:100%;
+  background-color:#0057A0 ;
+  background-image: linear-gradient(10deg, #0057A0 0%, #22A7F0 100%);
+  
+}
+
+.req_count{
+  font-size:14px;
+  font-weight:bold;
+  color:white;
+padding-bottom: 17px;
+}
+
+.req_button_div{
+  
+padding: 14px 0px 40px 0px;
+    text-align: center;
+}
+
+.req_button{
+  
+font-size: 16px;
+ font-family: 'Open Sans', sans-serif;
+text-decoration:none; 
+ text-align:center; 
+ padding:11px 32px; 
+ 
+ -webkit-border-radius:29px;
+ -moz-border-radius:29px; 
+ border-radius: 29px; 
+    
+ font-weight:bold; 
+ color:#0057A0; 
+ background-color:#fff; 
+  border: 1px solid white;
+ cursor: pointer;
+}
+
+.req_button:hover {
+
+    COLOR:#fff ;
+    BACKGROUND-COLOR: #22A7F0 ;
+    border: 1px solid white;
+}
+
+.span_count{
+  color:#BA1C58;
+  background-color:white;
+  padding:3px 6px 3px 6px;
+  border-radius: 9px;
+}
+
+.req_center{
+  text-transform:uppercase;
+  font-weight:bold;
+  text-align:center;
+  padding: 10px 0 0px 0;
+}
+
+@media screen and (max-width: 600px) {
+   .req_logo_text {
+      
+      font-size: 18px;
+      
+   }
+}

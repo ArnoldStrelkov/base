@@ -1,0 +1,49 @@
+ <div class="req_center">к просьбе присоединилсь</div>
+
+  <% if @grid%>
+<div class="grid">
+     <% end%>
+    
+  <% for user in @users %>
+<div class="grid-item">
+    
+    <div class="g_text ">
+        
+       <div class="g_inner_text"  style="min-height: 0px">
+           
+           
+           <div class="req_name" style="width: 100%;">
+	<div class="cell" style="width: 100%;">
+	 <%= user.name  %>
+	</div>
+</div>
+     
+  
+ 
+    </div> 
+
+<div class="g_user back_<%= user.id.to_s.last%>">
+    
+   
+        
+        <% unless  user.avatar_url.nil? %>
+         <div class="div_ava">
+    <img class="g_ava"   src="<%= user.avatar_url  %>" >
+                </div>
+             <% end %>   
+                
+                
+                
+   
+    </div>
+
+
+</div>
+
+</div>
+ <% end %>
+
+
+ <% if @grid%>
+ </div>
+  <% end %>
