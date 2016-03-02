@@ -68,10 +68,24 @@ text-decoration:none;
 
 .req_button:hover {
 
-    COLOR:#fff ;
-    BACKGROUND-COLOR: #22A7F0 ;
-    border: 1px solid white;
+ color:#fff; 
+ background-color:#22A7F0; 
 }
+
+.req_button_view{
+
+    COLOR:#5E147D ;
+    BACKGROUND-COLOR: #fff;
+   
+}
+
+.req_button_view:hover{
+
+    color:#fff; 
+ background-color:#AB69C6; 
+   
+}
+
 
 .span_count{
   color:#BA1C58;
@@ -87,10 +101,46 @@ text-decoration:none;
   padding: 10px 0 0px 0;
 }
 
+.req_form_place{
+   display:none; 
+    text-align:center;
+    font-size: 16px;
+     color:#fff; 
+     padding-bottom:20px;
+   
+}
+
+.req_form_texarea{
+    width:90%;
+   font-family: 'Open Sans', Verdana,sans-serif;
+   font-size: 16px;
+    line-height: 1.42857;
+    color: #555555;
+    vertical-align: middle;
+    background-color: white;
+    background-image: none;
+    border: 0px solid #cccccc; 
+}
+.req_text{
+background: #fff;
+    font-size: 16px;
+    border-radius: 5px;
+    margin: 10px 10px;
+}
+
+.req_inner_text{
+    padding: 5px 15px 5px 15px;
+    text-align:justify;
+}
+
 @media screen and (max-width: 600px) {
    .req_logo_text {
       
       font-size: 18px;
       
    }
+   
+   .req_inner_text{
+   font-size: 18px;
+}
 }

@@ -1,4 +1,5 @@
- <div class="req_center">к просьбе присоединились</div>
+<div class="req_center">
+ <%= @current_user.nil? ? 'к просьбе присоединились' : 'вы присоединились к просьбе'%></div>
 
   <% if @grid%>
 <div class="grid">

@@ -6,6 +6,8 @@ Rails.application.routes.draw do
    #root 'main#feed'
    #root 'wishes#index'
    root 'request#index'
+   get 'req' => 'request#req'
+   post 'new_req' => 'request#create'
    #get 'sochi' => 'sochi#index'
    get 'a' => 'main#all'
    post 'enter' => 'application#enter'

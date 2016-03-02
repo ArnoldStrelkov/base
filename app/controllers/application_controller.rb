@@ -50,7 +50,7 @@ class ApplicationController < ActionController::Base
       cookies.permanent[:token] = @token
     
       
-    redirect_to :root 
+    redirect_to request.env['omniauth.origin'] ||  :root 
     end
     
     

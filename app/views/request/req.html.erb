@@ -1,0 +1,42 @@
+<div class="req_center">все обращения</div>
+
+ 
+    
+  <% for req in @reqs %>
+<div class="g_inner_logo">
+    
+    <div class="req_text ">
+        
+       <div class="req_inner_text"  >
+           
+           
+         
+	 <%= simple_format(req.text)  %>
+	 
+
+     
+  
+ 
+    </div> 
+
+<div class="g_user back_<%= req.id.to_s.last%>">
+    
+   
+        
+        <% unless  req.user.avatar_url.nil? %>
+         <div class="div_ava">
+    <img class="g_ava"   src="<%= req.user.avatar_url  %>" >
+                </div>
+             <% end %>   
+            <%= req.user.name  %>       
+                
+                
+   
+    </div>
+
+
+</div>
+
+</div>
+ <% end %>
+

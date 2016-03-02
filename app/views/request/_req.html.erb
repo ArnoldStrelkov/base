@@ -1,0 +1,53 @@
+<div class="req_logo_2">
+    <div class="g_inner_logo">
+        <div class="logo_name" >  Все обращения к Юле </div>
+    <div class="req_logo_text">  Уважаемые друзья, напишите здесь своими словами
+    почему вы ждете от Юли  трансляцию в перископе и почему эта трансляция очень важна для вас. 
+    Может быть 
+    именно ваши слова убедят Юлю провести трансляцию.
+    </div>
+    
+    <% if @current_user.nil? %>
+    
+    <div class="req_button_div">
+      <a href='/auth/vkontakte' class="req_button req_button_view ">войдите через vk чтобы добавить обращение</a>
+      </div>
+    
+     
+       
+    <% else %>
+    
+    <div class="req_button_div">
+      <a href='#' class="req_button req_button_view js_add_req">добавить обращение</a>
+      </div>
+    
+     
+      
+    <% end %>  
+     
+      <div class="req_form_place">
+      
+       <form method="POST" action="/new_req" class=""  >
+      <div class="g_enter_text">напишите свое обращение<br>
+         </div>
+      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+      <textarea name="text" type="text" rows="7" class="req_form_texarea"></textarea>
+      
+   
+      <div class="count_button">
+        <button type="submit" class="req_button req_button_view">Отправить</button> 
+      </div>
+      
+      </form>
+    
+      
+      
+      
+      </div>
+     
+     
+  </div>  
+</div>
+
+
+
