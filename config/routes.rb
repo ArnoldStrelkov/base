@@ -7,6 +7,7 @@ Rails.application.routes.draw do
    #root 'wishes#index'
    root 'request#index'
    get 'req' => 'request#req'
+   get 'test' => 'request#test'
    post 'new_req' => 'request#create'
    #get 'sochi' => 'sochi#index'
    get 'a' => 'main#all'

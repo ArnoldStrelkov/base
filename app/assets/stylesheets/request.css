@@ -133,6 +133,42 @@ background: #fff;
     text-align:justify;
 }
 
+
+
+
+/* test */
+.test_logo_ava{
+ 
+  border-radius:50%;
+  width:200px;
+  height:200px;
+  border: 1px solid #fff;
+  margin:28px 40px 20px 50px;
+  float:left;
+}
+
+.test_logo_name{
+  font-weight:bold;
+  color:white;
+  font-size:24px;
+  padding: 33px 20px 0px 20px;
+}
+
+.test_req_logo_text{
+  color:white;
+  font-size:20px;
+  padding: 40px 20px 8px 20px;
+  text-align: justify;
+}
+
+.test_height{
+ height:280px;   
+}
+
+/* test */
+
+
+
 @media screen and (max-width: 600px) {
    .req_logo_text {
       
