@@ -1,0 +1,149 @@
+$white: #FFFFFF;
+$highlight: #7ac483;
+$gray_background: #f2f1f8;
+$gray_copy: #b9b7c6;
+$dark_gray: #3f3d4e;
+
+body{
+  
+}
+
+#banner{
+  background-image: url(/bg.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position:center;
+ min-width: 900px;
+  
+  header{
+    padding: 2rem 0;
+  }
+  
+  #logo{
+    color: $white;
+    font-weight: 700;
+    font-size: 1.35rem;
+    margin: 0;
+    float:left;
+    span{
+      font-weight: 400;
+    }
+  }
+  nav{
+    float:right;
+    a{
+      color: $white;
+      font-weight: 700;
+      text-decoration:none;
+      margin-left: 2rem;
+      
+    }
+  }
+  
+  .content{
+    padding: 4rem 0 8rem 0;
+    .mc_title, .sub_title{
+      color: $white;
+      text-align: center;
+      
+    }
+    .mc_title{
+      font-size: 3.5rem;
+      margin: 2rem 0 4rem  0 ;
+    }
+    .sub_title{
+      font-weight: 400;
+      font-size: 1.35rem;
+      width: 600px;
+      margin: 0 auto 2rem auto;
+      line-height: 1.65;
+    }
+    .button_wrapper{
+      text-align: center;
+      margin: 3rem 0;
+      
+    }
+    
+  }
+  
+  
+}
+
+
+.wrapper{
+  width:900px;
+  max-width:90%;
+  margin: 0 auto;
+  
+}
+
+.button{
+  border: none;
+  outline: none;
+  border-radius:2rem;
+  padding: 1rem 3.5rem;
+  font-weight:700;
+  color:$white;
+  text-decoration:none;
+  text-align:center;
+   margin: 0 .75rem;
+  
+}
+
+.button_highlight{
+  
+   background: rgba(1, 243, 1, 0.5);
+   &:hover{
+    background: rgba(1, 243, 1, 0.8);
+  }
+}
+
+.button_white{
+  border: 0.1rem white solid;
+  background: rgba(1, 1, 1, 0.8);
+  &:hover{
+    background: rgba(1, 1, 1, 0.5);
+  }
+  
+}
+
+.button_secondary{
+  background: rgba(243, 1, 1, 0.5);
+  &:hover{
+    background: rgba(243, 1, 1, 0.8);
+  }
+}
+
+.button_small{
+  padding: 0.4rem 1.5rem;
+}
+
+#inner{
+  margin: 2rem 0 2rem 0;
+  .inner_logo{
+  height: 40rem;
+  background-image: url(/bg_music.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position:center;
+  
+  color:$white;
+  padding: 2rem; 
+  text-align:center;
+    h1 {
+      font-size: 3.5rem;
+      line-height: 3rem;
+      margin: 6rem 0 9rem 0;
+      
+      
+    }
+    
+    .button_wrapper{
+      text-align: center;
+      margin: 13rem 0 2rem 0;
+      
+    }
+    
+  }
+  
+}

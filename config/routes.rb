@@ -3,9 +3,9 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-   #root 'main#feed'
+   root 'main#feed'
    #root 'wishes#index'
-   root 'request#index'
+   #root 'request#test'
    get 'req' => 'request#req'
    get 'test' => 'request#test'
    post 'new_req' => 'request#create'

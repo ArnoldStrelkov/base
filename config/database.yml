@@ -10,14 +10,14 @@ default: &default
   timeout: 5000
 
 development:
-  #<<: *default
-  #database: db/development.sqlite3
-  adapter: postgresql
-  encoding: unicode
-  database: development_database_name
-  pool: 5
-  username: ubuntu
-  password: <%= ENV["PG_PASS"] %>
+  <<: *default
+  database: db/development.sqlite3
+  #adapter: postgresql
+  #encoding: unicode
+  #database: development_database_name
+  #pool: 5
+ # username: ubuntu
+ # password: <%= ENV["PG_PASS"] %>
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".

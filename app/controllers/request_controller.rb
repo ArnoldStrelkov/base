@@ -27,6 +27,9 @@ class RequestController < ApplicationController
   end
   
   def test
+    
+    
+    
   end
   
 end

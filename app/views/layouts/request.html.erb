@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta name="viewport" content="width=device-width"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Sunny5</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
@@ -10,7 +10,7 @@
    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 </head>
 <body>
-  <div class="d960">
+  
 
  <%= render "index" if @req_index %>
  <%= render "req" if @req_req %>
@@ -20,7 +20,7 @@
 
 <%= render "req_footer" if @req_req %>
 
-</div> 
+
 
 <!-- Yandex.Metrika counter -->
 <script type="text/javascript">

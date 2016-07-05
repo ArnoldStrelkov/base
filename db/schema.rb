@@ -13,9 +13,6 @@
 
 ActiveRecord::Schema.define(version: 20160302032618) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
   create_table "ads", force: :cascade do |t|
     t.string  "title"
     t.string  "body"
@@ -29,8 +26,8 @@ ActiveRecord::Schema.define(version: 20160302032618) do
     t.text    "answer"
   end
 
-  add_index "asks", ["target_id"], name: "index_asks_on_target_id", using: :btree
-  add_index "asks", ["user_id"], name: "index_asks_on_user_id", using: :btree
+  add_index "asks", ["target_id"], name: "index_asks_on_target_id"
+  add_index "asks", ["user_id"], name: "index_asks_on_user_id"
 
   create_table "feeds", force: :cascade do |t|
     t.integer "follower_id"
@@ -44,7 +41,7 @@ ActiveRecord::Schema.define(version: 20160302032618) do
     t.datetime "updated_at", null: false
   end
 
-  add_index "insts", ["user_id"], name: "index_insts_on_user_id", using: :btree
+  add_index "insts", ["user_id"], name: "index_insts_on_user_id"
 
   create_table "posts", force: :cascade do |t|
     t.string  "body"
@@ -91,6 +88,4 @@ ActiveRecord::Schema.define(version: 20160302032618) do
     t.datetime "updated_at"
   end
 
-  add_foreign_key "asks", "users"
-  add_foreign_key "insts", "users"
 end

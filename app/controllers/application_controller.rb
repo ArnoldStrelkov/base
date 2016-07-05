@@ -17,7 +17,7 @@ class ApplicationController < ActionController::Base
       #render text: provider + uid + name + avatar  and return
       
       
-      @admin = 1
+      @admin = 15
       @current_user = User.where("provider = ? AND uid = ?", provider, uid).first
       
       if @current_user
@@ -58,7 +58,7 @@ class ApplicationController < ActionController::Base
       
       
       
-      @admin = 1
+      @admin = 15
       @current_user = nil
       
       if User.count == 0
