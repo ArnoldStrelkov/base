@@ -55,8 +55,7 @@
                               href="/api/delete/<%= post.id %>">удал.</a>
                          <% else %> 
                               <a class="js_read  css_button_menu"
-                              href="/api/read/<%= post.user.id %>">
-                                  <% if post.user.following_i_ams.any?  %>читаю<% else %>читать<% end %></a> 
+                              href="/api/read/<%= post.user.id %>"><% if post.user.following_i_ams.any?  %>читаю<% else %>читать<% end %></a> 
                     
                         <% end %>
                     <% end %>

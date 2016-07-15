@@ -21,6 +21,63 @@
   $(document).ready(function() {  
  //$(document).on('page:change', function() {  
  
+ $(document).on('click', '.lite_button',  function(e) {
+   
+  e.preventDefault();
+  
+  $(this).hide();
+  
+  $(this).parent().find('.lite_form').show();
+   
+});
+  
+  
+  $(document).on('submit', '.js_lite_submit', function(e) {
+  var _this;
+    e.preventDefault();
+   
+    _this = this;
+    // alert('111');
+    var formData;
+    formData = new FormData($(this)[0]);
+    
+    console.log (formData);
+   
+    return   $.ajax({
+      //url:"/api/createpost",
+    url: $(this).attr('action'),
+      type: 'POST',
+      data: formData,
+      async: true,
+      success: function(response) {
+          
+         $(_this).hide();
+         $(_this).parent().html('вы присоединилсь к проекту')
+        // $('.new').prepend(response);
+        // $('.js_submit')[0].reset();
+        // $('.css_form_for_post_display_none').fadeOut(300);
+        // $('.add_menu_on').removeClass('active');
+        // $('.add_menu_on').find('a').text('добавить пост');
+        // $(_this).find('.image_preview').attr("src", '');
+        // $(_this).find('.add_foto_menu').css("display","block");
+        // $('.js_add_form_for_post').removeClass('active');
+          
+        // $('.send').fadeIn(1000);
+        // $('.send_text').html('');
+         
+        
+         
+      },
+     cache: false,
+      contentType: false,
+      processData: false
+  });
+   
+ });
+ 
+ 
+ 
+ 
  
  var youtube;
 youtube = function() {   
@@ -112,8 +169,8 @@ $(window).scroll(function(){
     if  ($(window).scrollTop() >= $(document).height() - $(window).height() - 500){
                        
                        
-                if   (hold){    
-                        
+                //if   (hold){    
+                 if   (false){          
                         hold = false;
                         count++;
 //alert(count);
@@ -128,9 +185,9 @@ $(window).scroll(function(){
     
    // alert(response);
        
-        $('.yield').append(response);
-        more();
-        youtube ();
+     //   $('.yield').append(response);
+      //  more();
+      //  youtube ();
          hold = true;
     
   });
@@ -329,6 +386,7 @@ url = $(this).attr('href');
       async: true,
       success: function(response) {
  
+ //alert (_this.html());
 if (_this.html() == 'читаю') {
     _this.removeClass('active');
     _this.html('читать');

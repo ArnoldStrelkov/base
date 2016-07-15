@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160114100644) do
+ActiveRecord::Schema.define(version: 20160713070742) do
 
   create_table "ads", force: :cascade do |t|
     t.string  "title"
@@ -19,9 +19,36 @@ ActiveRecord::Schema.define(version: 20160114100644) do
     t.integer "user_id"
   end
 
+  create_table "asks", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "target_id"
+    t.text    "body"
+    t.text    "answer"
+  end
+
+  add_index "asks", ["target_id"], name: "index_asks_on_target_id"
+  add_index "asks", ["user_id"], name: "index_asks_on_user_id"
+
   create_table "feeds", force: :cascade do |t|
     t.integer "follower_id"
     t.integer "followed_id"
+  end
+
+  create_table "insts", force: :cascade do |t|
+    t.string   "inst"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "insts", ["user_id"], name: "index_insts_on_user_id"
+
+  create_table "lites", force: :cascade do |t|
+    t.string   "name"
+    t.string   "tel"
+    t.string   "type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "posts", force: :cascade do |t|
@@ -30,6 +57,11 @@ ActiveRecord::Schema.define(version: 20160114100644) do
     t.string  "title"
     t.string  "foto"
     t.string  "video"
+  end
+
+  create_table "reqs", force: :cascade do |t|
+    t.string  "text"
+    t.integer "user_id"
   end
 
   create_table "savedposts", force: :cascade do |t|
@@ -55,6 +87,13 @@ ActiveRecord::Schema.define(version: 20160114100644) do
     t.string "avatar"
     t.string "provider"
     t.string "uid"
+  end
+
+  create_table "wishes", force: :cascade do |t|
+    t.string   "body"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end
