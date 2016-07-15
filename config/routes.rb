@@ -7,34 +7,34 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
    #root 'main#feed'
    #root 'sochi#index'
-   get 'sochi' => 'sochi#index'
-   post 'enter' => 'application#enter'
-   get 'login/:token' => 'application#login_by_email'
-   get 'exit' => 'application#exit'
-   get 'feedusers' => 'main#feedusers'
-   get 'allusers' => 'main#allusers'
-   get 'all' => 'main#all'
-   get 'email' => 'main#email'
-   get 'about' => 'main#about'
-   get 'error' => 'application#error'
-   get 'tusa' => 'main#tusa'
-   get 'ads' => 'main#ads'
-   get 'myads' => 'main#myads'
+   #get 'sochi' => 'sochi#index'
+   #post 'enter' => 'application#enter'
+   #get 'login/:token' => 'application#login_by_email'
+  # get 'exit' => 'application#exit'
+   #get 'feedusers' => 'main#feedusers'
+  # get 'allusers' => 'main#allusers'
+   #get 'all' => 'main#all'
+   #get 'email' => 'main#email'
+  # get 'about' => 'main#about'
+  # get 'error' => 'application#error'
+  # get 'tusa' => 'main#tusa'
+  # get 'ads' => 'main#ads'
+  # get 'myads' => 'main#myads'
+  # 
+   #post '/test' => 'application#test'
    
-   post '/test' => 'application#test'
-   
-   get 'settings' => 'main#settings'
-   post 'settings' => 'main#updatesettings'
+  # get 'settings' => 'main#settings'
+  # post 'settings' => 'main#updatesettings'
 
-post '/all' => 'main#all_add'
-post 'allusers' => 'main#allusers_add'
-post 'feedusers' => 'main#feedusers_add'
+#post '/all' => 'main#all_add'
+#post 'allusers' => 'main#allusers_add'
+#post 'feedusers' => 'main#feedusers_add'
 
 get '/auth/:provider/callback', to: 'application#provider'
 
-get '/:id' => 'main#user'
-post '/:id' => 'main#user_add'
-post '/' => 'main#feed_add'
+#get '/:id' => 'main#user'
+#post '/:id' => 'main#user_add'
+#post '/' => 'main#feed_add'
 
 
 
